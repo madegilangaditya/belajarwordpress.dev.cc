@@ -36,7 +36,19 @@
             'after_title'   => '</h2>'
         ];
 
+        $fargs =[
+            'name'          => esc_html__( 'Footer Sidebar', 'wphierarchy' ),
+            'id'            => 'footer-sidebar',
+            'description'   => esc_html__( 'Add widgets for footer sidebar here', 'wphierarchy' ),
+            'before_widget' => '<section class="widget">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>'
+        ];
+
         register_sidebar( $args );
+
+        register_sidebar( $fargs );
     }
     add_action( 'widgets_init', 'wphierarchy_widgets_init' );
 

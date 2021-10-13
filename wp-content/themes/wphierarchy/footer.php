@@ -8,6 +8,7 @@
                     printf( esc_html__( 'Proudly Powered by %s', 'wphierarchy' ), 'Wordpress' );
                 ?>
             </a>
+
         </footer>
     </div> <!-- .Page close -->
 </body>
