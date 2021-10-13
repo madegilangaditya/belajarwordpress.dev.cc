@@ -14,11 +14,11 @@
             <?php get_template_part( 'template-parts/content', 'none' ); ?>
         <?php endif; ?>
         </main>
-        <p>Template: Index.php</p>
+        <p>Template: singular.php</p>
     </div>
 
     <?php get_sidebar(); ?>
 
-   
+    
 
 <?php get_footer(  ); ?>
