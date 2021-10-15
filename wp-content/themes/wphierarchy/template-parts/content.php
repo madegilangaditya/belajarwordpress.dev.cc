@@ -10,4 +10,12 @@
     <div class="entry-content">
         <?php the_content(); ?>
     </div>
+
+    <!-- Don't show comments at all -->
+    <?php if( comments_open() ): ?>
+
+        <?php comments_template(); ?>
+
+    <?php endif; ?>
+    
 </article>
