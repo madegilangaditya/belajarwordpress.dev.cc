@@ -1,9 +1,11 @@
 <?php get_header(  ); ?>
+
     <style>
         .author-img img{
             float:none;
         }
     </style>
+
     <div id="primary" class="content-area">
         <main id="main" class="site-main" role="main">
             <div class="author-bio">
