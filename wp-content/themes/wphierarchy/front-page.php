@@ -1,6 +1,6 @@
 <?php get_header(  ); ?>
 
-    <div id="primary" class="content-area">
+    <div id="primary" class="content-area extended">
         <main id="main" class="site-main" role="main">
 
         <!-- Post Loop -->
@@ -17,7 +17,7 @@
         <p>Template: Front-page.php</p>
     </div>
 
-    <?php get_sidebar( 'page' ); ?>
+    <?php get_sidebar( 'front-page' ); ?>
 
     
 

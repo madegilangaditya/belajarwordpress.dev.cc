@@ -203,6 +203,16 @@ body {
     width: 25%;
     float: right;
   }
+
+  .home #secondary{
+    width: 100%;
+    clear: both;
+  }
+
+  .home #secondary .widget{
+    width: 30%;
+    float: left;
+  }
   
   #secondary h2 {
     font-size: 1.2rem;

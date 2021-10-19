@@ -56,11 +56,23 @@
             'after_title'   => '</h2>'
         ];
 
+        $fpargs =[
+            'name'          => esc_html__( 'Front Page Widget', 'wphierarchy' ),
+            'id'            => 'front-page',
+            'description'   => esc_html__( 'Add widgets for front page here', 'wphierarchy' ),
+            'before_widget' => '<section class="widget">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>'
+        ];
+
         register_sidebar( $args );
 
         register_sidebar( $fargs );
 
         register_sidebar( $pargs );
+
+        register_sidebar( $fpargs );
     }
     add_action( 'widgets_init', 'wphierarchy_widgets_init' );
 
