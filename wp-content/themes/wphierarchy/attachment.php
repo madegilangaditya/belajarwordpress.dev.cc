@@ -20,7 +20,9 @@
             </header>
 
             <div class="entry-content">
-                <pre><?php var_export( $post ); ?></pre>
+
+                <p><a href="<?php echo $post->guid; ?>">Download</a></p>
+
                 <?php the_content(); ?>
             </div>
 
