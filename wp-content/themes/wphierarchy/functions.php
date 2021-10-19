@@ -46,9 +46,21 @@
             'after_title'   => '</h2>'
         ];
 
+        $pargs =[
+            'name'          => esc_html__( 'Page Sidebar', 'wphierarchy' ),
+            'id'            => 'page-sidebar',
+            'description'   => esc_html__( 'Add widgets for page sidebar here', 'wphierarchy' ),
+            'before_widget' => '<section class="widget">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>'
+        ];
+
         register_sidebar( $args );
 
         register_sidebar( $fargs );
+
+        register_sidebar( $pargs );
     }
     add_action( 'widgets_init', 'wphierarchy_widgets_init' );
 
