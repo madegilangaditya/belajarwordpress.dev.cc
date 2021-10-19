@@ -21,6 +21,11 @@
                 <?php the_content(); ?>
 
                 <p>
+                    Skills:
+                    <?php the_terms( $post -> ID, 'skills' ) ?>
+                </p>
+
+                <p>
                     <a class="button" href="<?php the_field('url'); ?>">
                         <?php esc_html_e( 'Visit The Project', 'wphierarchy' ); ?>
                     </a>
