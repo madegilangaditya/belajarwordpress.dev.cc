@@ -30,29 +30,36 @@
 
             <nav id="site-navigation" class="main-navigation" role="navigation">
                     <?php
+                    // Menu config example
+                    // $args = [
+                    //     'theme_location'  => 'main-menu',
+                    //     // Assign default menu to location
+                    //     'menu'            => 'Main Menu',
+                    //     // Main Wrapper around the ul of posts
+                    //     'container'       => 'div',
+                    //     'container_class' => 'container-class',
+                    //     'container_id'    => 'container-id',
+                    //     // Wrapper menu items - default to ul
+                    //     'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                    //     'menu_class'      => 'items-wrap-class',
+                    //     'menu_id'         => 'items-wrap-id',
+                    //     // Add text before link text (outside a tag)
+                    //     'before'          => '<',
+                    //     'after'           => '>',
+                    //     // Add text to link text (inside a tag)
+                    //     'link_before'     => '{',
+                    //     'link_after'      => '}',
+                    //     // Menu child to show
+                    //     'depth'           => 5,
+                    //     // Callback function if menu is not available
+                    //     'fallback_cb'     => 'wp_page_menu'  
+
+                    // ];
+
                     $args = [
                         'theme_location'  => 'main-menu',
                         // Assign default menu to location
-                        'menu'            => 'Main Menu',
-                        // Main Wrapper around the ul of posts
-                        'container'       => 'div',
-                        'container_class' => 'container-class',
-                        'container_id'    => 'container-id',
-                        // Wrapper menu items - default to ul
-                        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                        'menu_class'      => 'items-wrap-class',
-                        'menu_id'         => 'items-wrap-id',
-                        // Add text before link text (outside a tag)
-                        'before'          => '<',
-                        'after'           => '>',
-                        // Add text to link text (inside a tag)
-                        'link_before'     => '{',
-                        'link_after'      => '}',
-                        // Menu child to show
-                        'depth'           => 5,
-                        // Callback function if menu is not available
-                        'fallback_cb'     => 'wp_page_menu'  
-
+                        'menu'            => 'Main Menu'
                     ];
                     wp_nav_menu( $args );
                     ?>
