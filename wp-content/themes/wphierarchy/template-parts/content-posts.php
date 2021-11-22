@@ -6,6 +6,7 @@
         <?php the_title( '<h2><a href=" '. esc_url( get_permalink() ) .' ">', '</a></h2>' ); ?>
 
         <div class="byline">
+            Date: <?php the_date( 'F j, Y' ); ?>
             <?php esc_html_e( 'Categories : ', 'wphierarchy' ); ?>
             <?php the_category( ', ' ); ?> 
             <?php the_tags( 'Tags: ', ', ' ); ?>
