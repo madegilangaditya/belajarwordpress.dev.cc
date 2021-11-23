@@ -10,6 +10,8 @@
             <?php the_category( ', ' ); ?> 
             <?php the_tags( 'Tags: ', ', ' ); ?>
             <?php esc_html_e( 'Author:', 'wphierarchy' ); ?>  <?php the_author(); ?>
+            <?php the_shortlink( 'Shortlink' );?>
+            <?php echo wp_get_shortlink(  ); ?>
         </div>
     </header>
 
