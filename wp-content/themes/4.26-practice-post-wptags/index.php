@@ -9,7 +9,22 @@
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
           <header class="entry-header">
+            <?php if( has_post_thumbnail() ): ?>
+              <?php
+                
+                // Post thumbnail polos
+                //the_post_thumbnail( );
 
+                // Post Thumbnail with atributes
+                $attr = [
+                  'class' => 'img featured',
+                  'title' => get_the_title(  ),
+                  'alt' => get_the_title(  ) . ' Alt'
+                ];
+
+                the_post_thumbnail( 'thumbnail', $attr );
+              ?>
+            <?php endif; ?>
             <h2>
               <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
                 <?php the_title(); ?>
