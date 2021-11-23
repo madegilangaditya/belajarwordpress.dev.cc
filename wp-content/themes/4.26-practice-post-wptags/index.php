@@ -10,20 +10,23 @@
 
           <header class="entry-header">
             <?php if( has_post_thumbnail() ): ?>
-              <?php
-                
-                // Post thumbnail polos
-                //the_post_thumbnail( );
+              <a href="<?php the_permalink(  ); ?>">
 
-                // Post Thumbnail with atributes
-                $attr = [
-                  'class' => 'img featured',
-                  'title' => get_the_title(  ),
-                  'alt' => get_the_title(  ) . ' Alt'
-                ];
+                <?php
+                  
+                  // Post thumbnail polos
+                  //the_post_thumbnail( );
+                  
+                  // Post Thumbnail with atributes
+                  $attr = [
+                    'class' => 'img featured alignleft',
+                    'title' => get_the_title(  ),
+                    'alt' => get_the_title(  ) . ' Alt'
+                  ];
 
-                the_post_thumbnail( 'thumbnail', $attr );
-              ?>
+                  the_post_thumbnail( 'thumbnail', $attr );
+                ?>
+              </a>
             <?php endif; ?>
             <h2>
               <a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">

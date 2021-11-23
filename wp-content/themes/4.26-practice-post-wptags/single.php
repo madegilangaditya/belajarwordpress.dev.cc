@@ -10,6 +10,21 @@
 
             <header class="entry-header">
 
+                <?php
+                  
+                  // Post thumbnail polos
+                  //the_post_thumbnail( );
+                  
+                  // Post Thumbnail with atributes
+                  $attr = [
+                    'class' => 'img featured',
+                    'title' => get_the_title(  ),
+                    'alt' => get_the_title(  ) . ' Alt'
+                  ];
+
+                  the_post_thumbnail( 'full', $attr );
+                ?>
+
               <h1><?php the_title(); ?></h1>
 
               <p class="byline">
