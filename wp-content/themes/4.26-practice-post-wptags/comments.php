@@ -3,6 +3,7 @@
 if ( post_password_required() ) {
 	return;
 }
+$twenty_twenty_one_comment_count = get_comments_number();
 ?>
 
 <div id="comments" class="comments-area">
@@ -11,14 +12,17 @@ if ( post_password_required() ) {
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) : ?>
 		<h2 class="comments-title">
-			<?php
-				printf( // WPCS: XSS OK.
-					esc_html( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'wphierarchy' ) ),
-					esc_html( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'wphierarchy' ) ),
-					number_format_i18n( get_comments_number() ),
-					'<span>' . get_the_title() . '</span>'
+		<?php if ( '1' === $twenty_twenty_one_comment_count ) : ?>
+				<?php esc_html_e( '1 comment', 'twentytwentyone' ); ?>
+			<?php else : ?>
+				<?php
+				printf(
+					/* translators: %s: Comment count number. */
+					esc_html( _nx( '%s comment', '%s comments', $twenty_twenty_one_comment_count, 'Comments title', 'twentytwentyone' ) ),
+					esc_html( number_format_i18n( $twenty_twenty_one_comment_count ) )
 				);
-			?>
+				?>
+			<?php endif; ?>
 		</h2><!-- .comments-title -->
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
@@ -38,15 +42,16 @@ if ( post_password_required() ) {
 
 		<ol class="comment-list">
 			<?php
-				wp_list_comments( array(
-					'style'      => 'ol',
-					'short_ping' => true,
-				) );
+				// wp_list_comments( array(
+				// 	'style'      => 'ol',
+				// 	'short_ping' => true,
+				// ) );
 
                 // Custom comment template
-                // wp_list_comments( array(
-				// 	'callback'      => 'wptags_comment', //name function in fuction.php
-				// ) );
+                wp_list_comments( array(
+					'callback'      => 'wptags_comment', //name function in fuction.php
+				) );
+				paginate_comments_links(  );
 			?>
 		</ol><!-- .comment-list -->
 

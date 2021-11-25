@@ -66,10 +66,10 @@ function wptags_widgets_init() {
 }
 add_action( 'widgets_init', 'wptags_widgets_init' );
 
-// // Comment custom callbacks template
-// function wptags_comment(){
-//   get_template_part( 'comment' ); //Name your php file as custom comment template
-// }
+// Comment custom callbacks template
+function wptags_comment(){
+  get_template_part( 'comment' ); //Name your php file as custom comment template
+}
 
 
 ?>
