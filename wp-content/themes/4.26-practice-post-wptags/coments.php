@@ -42,6 +42,11 @@ if ( post_password_required() ) {
 					'style'      => 'ol',
 					'short_ping' => true,
 				) );
+
+                // Custom comment template
+                // wp_list_comments( array(
+				// 	'callback'      => 'wptags_comment', //name function in fuction.php
+				// ) );
 			?>
 		</ol><!-- .comment-list -->
 
