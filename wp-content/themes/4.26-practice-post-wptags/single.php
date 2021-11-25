@@ -56,6 +56,8 @@
 
           </div>
 
+          <?php get_template_part( 'template-parts/author', 'bio' ); ?>
+
           <?php comments_template(  ); ?>
 
         </article>
