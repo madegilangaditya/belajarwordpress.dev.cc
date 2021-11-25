@@ -13,6 +13,15 @@
     </p>
 
   <?php endif; ?>
+  
+  <h3><?php _e( 'List Authors', 'wptags' ); ?></h3>
+  <?php wp_list_authors(  ); ?>
+
+  <h3><?php _e( 'Dropdown Authors', 'wptags' ); ?></h3>
+  <form action="<?php bloginfo( 'url' ); ?>" method="get">
+    <?php wp_dropdown_users( ['name' => 'author'] ); ?>
+    <input type="submit" name="submit" value="View">
+  </form>
 
   <h3><?php _e( 'Calendar', 'wptags' ); ?></h3>
   <?php get_calendar(); ?>
