@@ -78,5 +78,14 @@ function wphooks_before_footer_message(){
 add_action( 'wphooks_before_footer', 'wphooks_before_footer_message', 10 );
 // remove_action( 'wphooks_before_footer', 'wphooks_before_footer_message', 10 );
 
+// Loop end hooks
+function wphooks_marketing_before_end(){
+
+  if(!in_the_loop(  )) return;
+  
+  locate_template( 'template-parts/marketing.php', true );
+}
+add_action( 'loop_end', 'wphooks_marketing_before_end', 10 );
+
 
 ?>
