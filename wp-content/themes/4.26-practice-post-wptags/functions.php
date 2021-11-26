@@ -82,10 +82,61 @@ add_action( 'wphooks_before_footer', 'wphooks_before_footer_message', 10 );
 function wphooks_marketing_before_end(){
 
   if(!in_the_loop(  )) return;
-  
+
   locate_template( 'template-parts/marketing.php', true );
 }
 add_action( 'loop_end', 'wphooks_marketing_before_end', 10 );
 
+// Template redirect hook
+function wphooks_redirect_training(){
+  if(is_page( 'about' ) && is_user_logged_in(  )){
+    wp_redirect( home_url( '/amazon-store/' ) );
+    die;
+  }
+
+  if(is_page( 'amazon-store' ) && !is_user_logged_in(  )){
+    wp_redirect( home_url( '/about/' ) );
+    die;
+  }
+}
+add_action( 'template_redirect', 'wphooks_redirect_training' );
+
+// Add draft in the title and slug when save or edit posts as draft
+function wphooks_add_draft_to_title( $post_id ){
+
+  // If post revision dont proceed
+  if( wp_is_post_revision( $post_id ) ){
+    return;
+  }
+
+  $post = get_post($post_id);
+  
+  // Add DRAFT: from title depending on status
+  if('draft' === $post->post_status && 'DRAFT: ' !== substr($post->post_title, 0 , 7)){
+
+    // Add Draft to title
+    $post -> post_title = 'DRAFT: ' . $post -> post_title;
+  } elseif ('publish' === $post -> post_status && 'DRAFT: ' === substr($post->post_title, 0, 7)){
+
+    // Remove draft from title
+    $post->post_title = substr($post->post_title, 7);
+  }
+
+  // If slug start with draft- remove it
+  if('draft-' === substr( $post->post_name, 0,6 )){
+    $post->post_name = substr($post->post_name, 6);
+  }
+
+  // Unhook save_post so it not loop infinitely
+  remove_action( 'save_post', 'wphooks_add_draft_to_title' );
+
+  // Update the post
+  wp_update_post( $post );
+
+  // Re-Hook again to save_post
+  add_action( 'save_post', 'wphooks_add_draft_to_title' );
+
+}
+add_action( 'save_post', 'wphooks_add_draft_to_title' );
 
 ?>
