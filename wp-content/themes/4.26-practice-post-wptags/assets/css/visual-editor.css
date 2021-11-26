@@ -1,0 +1,20 @@
+.editor-styles-wrapper{
+    font-size: 2.4rem;
+    background-color: #23282D !important;
+    color: #efefef;
+}
+
+.editor-styles-wrapper{
+    font-size: 2.4rem;
+    background-color: #23282D !important;
+    color: #efefef;
+}
+
+.wp-core-ui .editor-post-publish-button,
+.wp-core-ui .editor-post-publish-button:hover
+.wp-core-ui .editor-post-publish-button:focus
+.wp-core-ui .editor-post-publish-button:active{
+    background-color: #23282D !important;
+    border-color: #23282D !important;
+    color: #efefef;
+}
