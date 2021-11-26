@@ -1,0 +1,1 @@
+<p><?php _e( 'This is Hooks before footer custom', 'wptags' ); ?></p>

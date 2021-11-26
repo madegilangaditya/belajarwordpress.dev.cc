@@ -71,5 +71,12 @@ function wptags_comment(){
   get_template_part( 'comment' ); //Name your php file as custom comment template
 }
 
+// Before footer hook
+function wphooks_before_footer_message(){
+  locate_template( 'template-parts/before-footer.php', true );
+}
+add_action( 'wphooks_before_footer', 'wphooks_before_footer_message', 10 );
+// remove_action( 'wphooks_before_footer', 'wphooks_before_footer_message', 10 );
+
 
 ?>
