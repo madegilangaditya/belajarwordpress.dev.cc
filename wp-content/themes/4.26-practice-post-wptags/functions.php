@@ -216,4 +216,14 @@ function wphooks_read_more_link($read_more_text){
 }
 add_filter( 'excerpt_more', 'wphooks_read_more_link', 20 );
 
+// Add custom class in body using filter in body_class
+function wphooks_custom_body_classes( $classes ){
+  if ('page' === get_post_type(  )){
+    $classes[] = 'wphooks-page';
+  }
+
+  return $classes;
+}
+add_filter( 'body_class', 'wphooks_custom_body_classes' );
+
 ?>
