@@ -260,6 +260,20 @@ function wphooks_excerpt_length($length_in_words){
 }
 add_filter( 'excerpt_length', 'wphooks_excerpt_length', 20, 1 );
 
+// Practice 2 Filter - Login Redirect
+// function wphooks_member_login_redirect( $redirect_to, $request, $user ){
+//   if(isset( $user->roles ) && is_array( $user->roles )){
+//     if( !in_array('administrator', $user->roles) ){
+//       return home_url( '/about/' );
+//     } else{
+//       return $redirect_to;
+//     }
+//   }
+//   return;
+// }
+// add_filter( 'login_redirect', 'wphooks_member_login_redirect', 10 );
+
+
 
 
 ?>
