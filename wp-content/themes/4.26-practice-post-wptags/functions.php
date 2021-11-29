@@ -253,4 +253,13 @@ function wphooks_post_id_columns_content($column_name, $post_id){
 }
 add_action( 'manage_posts_custom_column', 'wphooks_post_id_columns_content', 10, 2 );
 
+// Practice 1 Filter - Change the length of post excerpts using excerpt_length filter
+function wphooks_excerpt_length($length_in_words){
+  $new_length_in_words = 35;
+  return $new_length_in_words;
+}
+add_filter( 'excerpt_length', 'wphooks_excerpt_length', 20, 1 );
+
+
+
 ?>
