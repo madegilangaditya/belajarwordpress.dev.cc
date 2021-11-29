@@ -172,4 +172,35 @@ function wptags_title_markup( $title, $id ){
 }
 add_filter( 'the_title', 'wptags_title_markup', 10, 2 );
 
+// Add an ads after middle paragraph in single post using the_content filter
+function wptags_content_ads($content){
+  if( !in_the_loop(  ) ){
+    return;
+  }
+
+  $paragraphs;
+
+  // Search for any text wrapped in paragraph tags
+  $pattern = "/<p>.*?<\/p>/m";
+  $p_count = preg_match_all( $pattern, $content, $paragraphs );
+  $paragraphs = $paragraphs[0];
+
+  // Find The middle paragraph
+  $ad_p_number = floor( $p_count / 2 );
+  if(0 == $ad_p_number) $ad_p_number = 1;
+  $ad_p = $paragraphs[$ad_p_number - 1];
+
+  // Create The ads
+  $post_ad = '<div class="post-ad" style="background:yellow;text-align:center;"><h2>Post Ads</h2></div>';
+  $ad_p_w_ad = '<p>' . $ad_p . '</p>' . $post_ad;
+
+  // Replace the original Paragraph
+  // With The paragraph with the ads
+  $content_w_ad = str_replace( $ad_p, $ad_p_w_ad, $content );
+
+  // Return New content with ads
+  return $content_w_ad;
+}
+add_filter( 'the_content', 'wptags_content_ads', 10 );
+
 ?>
