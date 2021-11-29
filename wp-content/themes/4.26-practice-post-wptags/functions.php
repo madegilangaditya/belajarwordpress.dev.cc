@@ -29,20 +29,20 @@ function wptags_enqueue_scripts() {
 add_action( 'wp_enqueue_scripts', 'wptags_enqueue_scripts' );
 
 // Control header for the_title
-function wptags_title_markup( $title, $id = null ) {
+// function wptags_title_markup( $title, $id = null ) {
 
-    if ( !is_singular() && in_the_loop() ) {
+//     if ( !is_singular() && in_the_loop() ) {
 
-      $title = '<h2><a href="' . get_permalink( $id ) . '">' . $title . '</a></h2>';
+//       $title = '<h2><a href="' . get_permalink( $id ) . '">' . $title . '</a></h2>';
 
-    } else if ( is_singular() && in_the_loop() ) {
+//     } else if ( is_singular() && in_the_loop() ) {
 
-      $title = '<h1>' . $title . '</h1>';
+//       $title = '<h1>' . $title . '</h1>';
 
-    }
+//     }
 
-    return $title;
-}
+//     return $title;
+// }
 // add_filter( 'the_title', 'wptags_title_markup', 10, 2 );
 
 // Register Menu Locations
@@ -159,5 +159,17 @@ function wphooks_make_uppercase($message){
 }
 add_filter( 'wphooks_footer_message', 'wphooks_make_uppercase', 15 );
 // remove_filter( 'wphooks_footer_message', 'wphooks_make_uppercase', 15 );
+
+// Control markup for the_title using add_filter
+function wptags_title_markup( $title, $id ){
+  if( is_singular(  ) && in_the_loop(  ) ){
+    $title = '<h1>' . $title . '</h1>';
+  } else if ( !is_singular( ) && in_the_loop(  ) ){
+    $title = '<h2><a href="' . get_permalink( $id ) . '">' . $title . '</a></h2>'; 
+  }
+
+  return $title;
+}
+add_filter( 'the_title', 'wptags_title_markup', 10, 2 );
 
 ?>
