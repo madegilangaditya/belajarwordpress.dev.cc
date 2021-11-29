@@ -152,4 +152,12 @@ function wphooks_draft_mode_styles(){
 }
 add_action( 'admin_enqueue_scripts', 'wphooks_draft_mode_styles' );
 
+// Practice apply filter to wphooks_footer_message
+function wphooks_make_uppercase($message){
+  $new_message = strtoupper($message);
+  return $new_message;
+}
+add_filter( 'wphooks_footer_message', 'wphooks_make_uppercase', 15 );
+// remove_filter( 'wphooks_footer_message', 'wphooks_make_uppercase', 15 );
+
 ?>

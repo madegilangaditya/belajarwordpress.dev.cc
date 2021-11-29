@@ -22,7 +22,11 @@
       wp_nav_menu( $args );
     ?>
 
-    <p>&copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?></p>
+    <?php 
+      $footer_message = '&copy;' . date( 'Y' ) . ' ' .get_bloginfo( 'name' );
+    ?>
+
+    <p><?php echo apply_filters( 'wphooks_footer_message', $footer_message ); ?></p>
 
     <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'wptags' ) ); ?>">
       <?php printf( esc_html__( 'Proudly powered by %s', 'wptags' ), 'WordPress' ); ?>
