@@ -203,4 +203,17 @@ function wptags_content_ads($content){
 }
 add_filter( 'the_content', 'wptags_content_ads', 10 );
 
+// Change the read more link for excerpts with excerpt_more filter
+function wphooks_read_more_link($read_more_text){
+  global $post;
+  $new_read_more = '... <a class="more-link" href="'
+                    . get_permalink( $post-> ID )
+                    . '">'
+                    . esc_html__( 'Read More &gt;', 'wphooks' )
+                    . '</a>';
+  
+  return $new_read_more;
+}
+add_filter( 'excerpt_more', 'wphooks_read_more_link', 20 );
+
 ?>
