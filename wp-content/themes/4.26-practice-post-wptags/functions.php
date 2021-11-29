@@ -226,4 +226,31 @@ function wphooks_custom_body_classes( $classes ){
 }
 add_filter( 'body_class', 'wphooks_custom_body_classes' );
 
+// Remove unwanted columns from post listing using manage_posts_columns filter
+function wphooks_customize_post_columns($columns){
+  unset( $columns['author'] );
+  unset( $columns['categories'] );
+  unset( $columns['tags'] );
+  unset( $columns['comments'] );
+  return $columns;
+}
+add_filter( 'manage_posts_columns', 'wphooks_customize_post_columns', 100 );
+
+// ADD Post ID to column section in admin area using filter
+
+// POST ID column header
+function wphooks_post_id_columns_head($defaults){
+  $defaults['ID'] = esc_html__( 'POST ID', 'wphooks' );
+  return $defaults;
+}
+add_filter( 'manage_posts_columns', 'wphooks_post_id_columns_head' );
+
+// ADD Post ID to column content using add action hook
+function wphooks_post_id_columns_content($column_name, $post_id){
+  if($column_name == 'ID'){
+    echo $post_id;
+  }
+}
+add_action( 'manage_posts_custom_column', 'wphooks_post_id_columns_content', 10, 2 );
+
 ?>
