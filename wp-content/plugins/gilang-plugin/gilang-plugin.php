@@ -26,6 +26,24 @@ function gilang_settings_page(){
         'dashicons-wordpress-alt',
         100
     );
+
+    add_submenu_page( 
+        'gilang',
+        __( 'Plugin Feature 1', 'gilang' ),
+        __( 'Feature 1', 'gilang' ),
+        'manage_options',
+        'gilang-feature-1',
+        'gilang_settings_subpage_markup'
+    );
+
+    add_submenu_page( 
+        'gilang',
+        __( 'Plugin Feature 2', 'gilang' ),
+        __( 'Feature 2', 'gilang' ),
+        'manage_options',
+        'gilang-feature-2',
+        'gilang_settings_subpage_markup'
+    );
 }
 add_action( 'admin_menu', 'gilang_settings_page' );
 
@@ -42,6 +60,54 @@ function gilang_settings_page_markup(){
     <?php
 
 }
+
+function gilang_settings_subpage_markup(){
+    // Double check user capabilities
+    if( !current_user_can( 'manage_options' ) ){
+        return;
+    }
+    ?>
+    <div class="wrap">
+        <h1><?php esc_html_e( get_admin_page_title(  ) ); ?></h1>
+        <p><?php esc_html_e( 'Some Content' ); ?></p>
+    </div>
+    <?php
+
+}
+
+function default_function_sub_pages(){
+    /** 
+     * Can add page as submenu using the following:
+     * add_dashboard_page()
+     * add_posts_page()
+     * add_media_page()
+     * add_pages_page()
+     * add_comments_page()
+     * add_theme_page()
+     * add_plugins_page()
+     * add_users_page()
+     * add_management_page()
+     * add_option_page()
+    */
+
+    add_dashboard_page( 
+        __( 'Custom Feature', 'gilang' ),
+        __( 'Custom Feature Menu', 'gilang' ),
+        'manage_options',
+        'gilang-custom-feature',
+        'gilang_settings_subpage_markup'
+    );
+
+    add_submenu_page( 
+        'tools.php',
+        __( 'Plugin Feature into tools', 'gilang' ),
+        __( 'Tools Feature', 'gilang' ),
+        'manage_options',
+        'gilang-feature-tools',
+        'gilang_settings_subpage_markup'
+    );
+}
+add_action( 'admin_menu', 'default_function_sub_pages' );
 
 function wpplugin_custom_admin_footer( $footer ) {
 
