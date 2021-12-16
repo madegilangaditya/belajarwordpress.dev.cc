@@ -109,6 +109,7 @@ function default_function_sub_pages(){
 }
 add_action( 'admin_menu', 'default_function_sub_pages' );
 
+// add custom footer text
 function wpplugin_custom_admin_footer( $footer ) {
 
   $new_footer = str_replace( '.</span>', __(' and <a href="https://mdgilangaditya.com">Made Gilang Aditya</a>.</span>', 'gilang' ), $footer);
@@ -116,4 +117,14 @@ function wpplugin_custom_admin_footer( $footer ) {
 
 }
 add_filter( 'admin_footer_text', 'wpplugin_custom_admin_footer', 10, 1 );
+
+// Add a link to your settings page in your plugin
+function wpplugin_add_settings_link( $links ){
+    $settings_link = '<a href="admin.php?page=gilang">' . __( 'Settings', 'gilang' ) . '</a>';
+    array_push( $links, $settings_link );
+    return $links;
+}
+
+$filter_name = "plugin_action_links_" . plugin_basename( __FILE__ );
+add_filter( $filter_name, 'wpplugin_add_settings_link' );
 
