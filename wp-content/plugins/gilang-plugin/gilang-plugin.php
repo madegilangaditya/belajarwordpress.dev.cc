@@ -128,3 +128,10 @@ function wpplugin_add_settings_link( $links ){
 $filter_name = "plugin_action_links_" . plugin_basename( __FILE__ );
 add_filter( $filter_name, 'wpplugin_add_settings_link' );
 
+// enque CSS file for plugin
+define ( 'GILANG_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+
+include( plugin_dir_path( __FILE__ ) . 'includes/wpplugin-styles.php' );
+
+include( plugin_dir_path( __FILE__ ) . 'includes/wpplugin-menus.php' );
+
