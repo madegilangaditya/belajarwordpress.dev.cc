@@ -35,11 +35,10 @@ function gilang_settings_page_markup(){
     if( !current_user_can( 'manage_options' ) ){
         return;
     }
+
+    include ( GILANG_PLUGIN_DIR . 'templates/admin/settings-page.php' );
     ?>
-    <div class="wrap">
-        <h1><?php esc_html_e( get_admin_page_title(  ) ); ?></h1>
-        <p><?php esc_html_e( 'Some Content' ); ?></p>
-    </div>
+    
     <?php
 
 }
@@ -49,11 +48,11 @@ function gilang_settings_subpage_markup(){
     if( !current_user_can( 'manage_options' ) ){
         return;
     }
+
+    include ( GILANG_PLUGIN_DIR . 'templates/admin/settings-page.php' );
+
     ?>
-    <div class="wrap">
-        <h1><?php esc_html_e( get_admin_page_title(  ) ); ?></h1>
-        <p><?php esc_html_e( 'Some Content' ); ?></p>
-    </div>
+    
     <?php
 
 }
