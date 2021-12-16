@@ -38,7 +38,12 @@ add_filter( $filter_name, 'wpplugin_add_settings_link' );
 // enque CSS file for plugin
 define ( 'GILANG_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
+// Include CSS filepath
 include( plugin_dir_path( __FILE__ ) . 'includes/wpplugin-styles.php' );
 
+// Include Menus settings file path
 include( plugin_dir_path( __FILE__ ) . 'includes/wpplugin-menus.php' );
+
+// Include JS filepath
+include( plugin_dir_path( __FILE__ ) . 'includes/wpplugin-scripts.php' );
 

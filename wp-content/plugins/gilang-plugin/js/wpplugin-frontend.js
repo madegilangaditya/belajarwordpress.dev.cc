@@ -1,0 +1,1 @@
+alert('Plugin JS FrontEnd loaded');
