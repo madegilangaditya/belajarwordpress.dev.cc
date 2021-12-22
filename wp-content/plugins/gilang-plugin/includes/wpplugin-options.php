@@ -22,10 +22,11 @@ function gilang_plugin_options(){
     //     'Third Option'
     // ];
 
-    $options = [];
-    $options['name'] = 'Gilang';
-    $options['location'] = 'Washington DC';
-    $options['sponsor'] = 'Plugin.CO';   
+    // $options = [];
+    // $options['name'] = 'Gilang';
+    // $options['location'] = 'Washington DC';
+    // $options['sponsor'] = 'Plugin.CO'; 
+    $options = 'Custom options text';  
 
     if( !get_option( 'gilang_plugin_option' ) ){
         add_option( 'gilang_plugin_option', $options );

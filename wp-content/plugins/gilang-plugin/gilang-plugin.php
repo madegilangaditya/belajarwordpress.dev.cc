@@ -19,7 +19,7 @@ if ( ! defined( 'WPINC' ) ) {
 // add custom footer text
 function wpplugin_custom_admin_footer( $footer ) {
 
-  $new_footer = str_replace( '.</span>', __(' and <a href="https://mdgilangaditya.com">Made Gilang Aditya</a>.</span>', 'gilang' ), $footer);
+  $new_footer = esc_html( get_option('gilang_plugin_option') );
   return $new_footer;
 
 }

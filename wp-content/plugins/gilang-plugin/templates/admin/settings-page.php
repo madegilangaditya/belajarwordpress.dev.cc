@@ -3,8 +3,8 @@
 
         <h2><?php esc_html_e( 'All Options', 'gilang' ); ?></h2>
         <?php $options = get_option( 'gilang_plugin_option' ); ?>
-
-        <ul>
+        <?php echo $options; ?>
+        <!-- <ul>
             <?php foreach($options as $option): ?>
                 <li><?php echo $option; ?></li>
             <?php endforeach; ?>
@@ -13,5 +13,5 @@
         <?php if(array_key_exists('name', $options)): ?>
             <h2><?php esc_html_e( 'Specific Option', 'gilang' ); ?></h2>
             <p><?php esc_html_e( $options['name'] ); ?></p>
-        <?php endif; ?>
+        <?php endif; ?> -->
     </div>
