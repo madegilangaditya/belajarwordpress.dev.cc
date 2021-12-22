@@ -36,7 +36,7 @@ function gilang_settings_page_markup(){
         return;
     }
 
-    include ( GILANG_PLUGIN_DIR . 'templates/admin/settings-page.php' );
+    include ( GILANG_PLUGIN_DIR . 'templates/admin/settings-page-section.php' );
     ?>
     
     <?php
