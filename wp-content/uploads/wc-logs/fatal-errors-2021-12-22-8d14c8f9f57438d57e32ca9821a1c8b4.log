@@ -1,0 +1,6 @@
+2021-12-22T06:57:38+00:00 CRITICAL Cannot redeclare wpplugin_settings() (previously declared in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/gilang-plugin/includes/wpplugin-settings-field.php:3) in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/6.21-default-settings/includes/wpplugin-settings-fields.php on line 32
+
+2021-12-22T06:57:43+00:00 CRITICAL Cannot redeclare wpplugin_settings() (previously declared in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/gilang-plugin/includes/wpplugin-settings-field.php:3) in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/6.21-default-settings/includes/wpplugin-settings-fields.php on line 32
+
+2021-12-22T06:57:43+00:00 CRITICAL Cannot redeclare wpplugin_settings() (previously declared in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/gilang-plugin/includes/wpplugin-settings-field.php:3) in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/6.21-default-settings/includes/wpplugin-settings-fields.php on line 32
+
