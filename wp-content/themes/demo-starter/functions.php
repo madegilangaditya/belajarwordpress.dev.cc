@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define( '_S_VERSION', time() );
 }
 
 if ( ! function_exists( 'demo_starter_setup' ) ) :
@@ -140,7 +140,9 @@ add_action( 'widgets_init', 'demo_starter_widgets_init' );
  * Enqueue scripts and styles.
  */
 function demo_starter_scripts() {
+
 	wp_enqueue_style( 'demo-starter-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style( 'demo-starter-main', get_template_directory_uri(  ) .'/css/main.css' , _S_VERSION );
 	wp_style_add_data( 'demo-starter-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'demo-starter-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
@@ -150,6 +152,18 @@ function demo_starter_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'demo_starter_scripts' );
+
+/**
+ * Add custom fonts
+ * font-family: 'Hind Siliguri', sans-serif;
+ */
+function demo_starter_custom_fonts_scripts(){
+	if( !is_admin(  ) ){
+		wp_register_style( 'hind_siliguri', 'https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap' );
+		wp_enqueue_style( 'hind_siliguri' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'demo_starter_custom_fonts_scripts' );
 
 /**
  * Implement the Custom Header feature.
