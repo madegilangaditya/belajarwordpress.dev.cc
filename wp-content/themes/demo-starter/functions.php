@@ -142,10 +142,13 @@ add_action( 'widgets_init', 'demo_starter_widgets_init' );
 function demo_starter_scripts() {
 
 	wp_enqueue_style( 'demo-starter-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_enqueue_style( 'demo-starter-main', get_template_directory_uri(  ) .'/css/main.css' , _S_VERSION );
 	wp_style_add_data( 'demo-starter-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'demo-starter-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	// Bootstrap imporet
+	wp_enqueue_style( 'demo-starter-main', get_template_directory_uri(  ) .'/css/main.css' , array(), _S_VERSION );
+	wp_enqueue_style( 'bootstrap-icon', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css');
+	wp_enqueue_script( 'demo-starter-main-js', get_template_directory_uri() .'/css/bootstrap/dist/js/bootstrap.min.js', array('jquery'), _S_VERSION, true );
+	//wp_enqueue_script( 'demo-starter-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -164,6 +167,34 @@ function demo_starter_custom_fonts_scripts(){
 	}
 }
 add_action( 'wp_enqueue_scripts', 'demo_starter_custom_fonts_scripts' );
+
+/**
+ * Register Custom Bootstrap Navigation Walker
+ */
+function register_navwalker(){
+	require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
+}
+add_action( 'after_setup_theme', 'register_navwalker' );
+
+
+/**
+ * Use namespaced data attribute for Bootstrap's dropdown toggles.
+ *
+ * @param array    $atts HTML attributes applied to the item's `<a>` element.
+ * @param WP_Post  $item The current menu item.
+ * @param stdClass $args An object of wp_nav_menu() arguments.
+ * @return array
+ */
+function prefix_bs5_dropdown_data_attribute( $atts, $item, $args ) {
+    if ( is_a( $args->walker, 'WP_Bootstrap_Navwalker' ) ) {
+        if ( array_key_exists( 'data-toggle', $atts ) ) {
+            unset( $atts['data-toggle'] );
+            $atts['data-bs-toggle'] = 'dropdown';
+        }
+    }
+    return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'prefix_bs5_dropdown_data_attribute', 20, 3 );
 
 /**
  * Implement the Custom Header feature.
