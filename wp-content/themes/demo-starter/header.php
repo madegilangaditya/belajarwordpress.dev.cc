@@ -25,7 +25,7 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'demo-starter' ); ?></a>
 
-	<header id="masthead" class="site-header main-header">
+	<header id="masthead" class="site-header main-header fixed-top">
 		<div class="container">
 			<nav class="navbar navbar-light navbar-expand-lg stroke px-0 py-lg-0">
 				<div class="site-branding navbar-brand">
@@ -37,14 +37,11 @@
 						<?php
 					else :
 						?>
-						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+						<a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 						<?php
 					endif;
-					$demo_starter_description = get_bloginfo( 'description', 'display' );
-					if ( $demo_starter_description || is_customize_preview() ) :
-						?>
-						<p class="site-description"><?php echo $demo_starter_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-					<?php endif; ?>
+					
+					 ?>
 				</div><!-- .site-branding -->
 						
 				<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,7 +73,7 @@
 						</li>
 					</ul>
 					<div class="top-righthny-buttton HeaderButton">
-						<a class="btn btn-primary btn-white mr-lg-5" href="contact">
+						<a class="btn btn-style btn-white mr-lg-5" href="contact">
 							Get In Touch &nbsp; <i class="bi bi-arrow-right"></i></a>
 					</div>
 				</div>

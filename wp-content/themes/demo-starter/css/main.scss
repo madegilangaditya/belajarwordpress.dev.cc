@@ -2,7 +2,96 @@
 $primary: #1769ff;
 $body-color: #777;
 $headings-color: #111;
+$font-family-base: 'Hind Siliguri', sans-serif;
+$dropdown-border-color:#eeeeee;
+$headings-font-weight:600;
+$btn-font-weight:$headings-font-weight;
+$btn-padding-y:10px;
+$btn-padding-x:30px;
+
+$theme-colors:(
+    "primary":$primary
+);
+    
+// Custom color map
+$custom-color:(
+    "dropdown-menu": $headings-color
+);
+
+// Merge Maps
+$theme-colors: map-merge($theme-colors , $custom-color );
 
 @import "./bootstrap/scss/bootstrap";
 
 // Then add additional custom code here
+
+// Header
+.site-header{
+    display: grid;
+    align-items: center;
+    height: 120px;
+}
+
+.site-title{
+    font-size: 2.25rem;
+    text-decoration: none;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.nav-link{
+    text-transform: capitalize;
+    transition: all 0.5s ease;
+    padding: 14px 0;
+    font-size: 1.2rem;
+}
+
+.menu-item{
+
+    .dropdown-menu{
+        transform: translateX(-50px);
+        padding: 1rem 0;
+        min-width: 12em;
+
+        &::before{
+            content: '';
+            width: 14px;
+            height: 14px;
+            background: $white;
+            border: 1px solid $dropdown-border-color;
+            display: block;
+            border-right: none;
+            border-bottom: none;
+            transform: translateX(-50%) rotateZ(45deg);
+            position: absolute;
+            top: -7px;
+            left: 49%;
+            z-index: 1001;
+        }
+
+        .dropdown-item{
+            color: var(--bs-dropdown-menu);
+            padding: 3px 24px;
+            font-size: 1.1rem;
+            cursor: pointer;
+
+            &:hover{
+                color: var(--bs-primary);
+                background: $white;
+            }
+        }
+    }
+}
+
+.btn-style.btn-white{
+    background: $white;
+    border: 2px solid $white;
+    color: var(--bs-primary);
+    line-height: 30px;
+
+    &:hover{
+        background: var(--bs-primary);
+        color: $white;
+        border: 2px solid var(--bs-primary);
+    }
+}
