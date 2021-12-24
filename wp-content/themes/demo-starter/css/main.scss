@@ -37,6 +37,21 @@ $theme-colors: map-merge($theme-colors , $custom-color );
     text-decoration: none;
     font-weight: 600;
     line-height: 1;
+    color: $white;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: $white;
+    opacity: .8;
+
+    &:hover{
+        opacity: 1;
+        color: $white;
+    }
+}
+
+.navbar-light .navbar-nav .nav-item.active .nav-link{
+    opacity: 1;
+    color: $white;
 }
 
 .nav-link{
@@ -44,6 +59,7 @@ $theme-colors: map-merge($theme-colors , $custom-color );
     transition: all 0.5s ease;
     padding: 14px 0;
     font-size: 1.2rem;
+    
 }
 
 .menu-item{
@@ -94,4 +110,11 @@ $theme-colors: map-merge($theme-colors , $custom-color );
         color: $white;
         border: 2px solid var(--bs-primary);
     }
+}
+
+
+// Home Banner
+.demo-home-banner{
+    background-image: linear-gradient(to right, rgba(1,0,6,.75), rgba(1,0,10,.75)), url(/wp-content/uploads/2021/12/banner2.jpeg);
+
 }
