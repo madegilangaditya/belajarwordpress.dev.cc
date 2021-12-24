@@ -72,7 +72,7 @@
 							<i class="bi bi-search"></i>
 						</li>
 					</ul>
-					<div class="top-righthny-buttton HeaderButton">
+					<div class="top-righthny-button HeaderButton">
 						<a class="btn btn-style btn-white mr-lg-5" href="contact">
 							Get In Touch &nbsp; <i class="bi bi-arrow-right"></i></a>
 					</div>

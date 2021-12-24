@@ -15,7 +15,7 @@
             <div class="pt-md-5 pt-lg-4 mt-4 align-items-lg-center">
                 <div class="bannerhny-info">
                     <h6 class="title-subhny mb-3">Digital Agency.</h6>
-                    <h3 class="">Why wait ? start your own business.</h3>
+                    <h2 class="banner-title">Why wait ? start your own business.</h3>
                     <a class="btn btn-style btn-primary btn-outline-light mt-sm-5 mt-4" href="about">Read More &nbsp; <i class="bi bi-arrow-right"></i></a>
                 </div>
 

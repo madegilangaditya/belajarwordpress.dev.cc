@@ -8,6 +8,7 @@ $headings-font-weight:600;
 $btn-font-weight:$headings-font-weight;
 $btn-padding-y:10px;
 $btn-padding-x:30px;
+$btn-line-height:30px;
 
 $theme-colors:(
     "primary":$primary
@@ -25,11 +26,18 @@ $theme-colors: map-merge($theme-colors , $custom-color );
 
 // Then add additional custom code here
 
+// is login admin bar
+.logged-in.admin-bar header.fixed-top{
+    top: 32px;
+}
+
 // Header
+
 .site-header{
     display: grid;
     align-items: center;
     height: 120px;
+    transition: all 0.4s ease 0s;
 }
 
 .site-title{
@@ -49,7 +57,8 @@ $theme-colors: map-merge($theme-colors , $custom-color );
     }
 }
 
-.navbar-light .navbar-nav .nav-item.active .nav-link{
+.navbar-light .navbar-nav .nav-item.active .nav-link,
+.navbar-light .navbar-nav .nav-link:focus{
     opacity: 1;
     color: $white;
 }
@@ -112,9 +121,54 @@ $theme-colors: map-merge($theme-colors , $custom-color );
     }
 }
 
+header.nav-fixed{
+    background-color: $white;
+    height: 100px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .05%);
+
+    .site-title{
+        color: $headings-color;
+    }
+
+    .navbar-light .navbar-nav .nav-link{
+        color: $headings-color;
+        opacity: 0.95;
+
+        &:hover{
+            color: var(--bs-primary);
+        }
+    }
+
+    .navbar-light .navbar-nav .nav-item.active .nav-link,
+    .navbar-light .navbar-nav .nav-link:focus{
+        color: var(--bs-primary);
+    }
+
+    .top-righthny-button{
+
+        .btn-style.btn-white{
+            background: var(--bs-primary);
+            color: $white;
+            border: 2px solid var(--bs-primary);
+        }
+    }
+}
 
 // Home Banner
 .demo-home-banner{
     background-image: linear-gradient(to right, rgba(1,0,6,.75), rgba(1,0,10,.75)), url(/wp-content/uploads/2021/12/banner2.jpeg);
+    background-attachment: fixed;
+
+    .banner-title{
+        font-size: 6.25rem;
+        color: $white;
+        text-transform: capitalize;
+    }
+
+    .title-subhny{
+        font-size: 0.875rem;
+        color: var(--bs-primary);
+        text-transform: uppercase;
+    }
 
 }
