@@ -6,3 +6,32 @@
 
 2021-12-27T07:49:51+00:00 CRITICAL require_once(): Failed opening required '/Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/includes/elementor/init.php' (include_path='.:/Applications/XAMPP/xamppfiles/lib/php') in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/functions.php on line 234
 
+2021-12-27T08:05:46+00:00 CRITICAL Uncaught Error: Class 'Elementor\Base' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php:6
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php(29): require_once()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php(22): Extends_Custom_Elementor_Widgets->__construct()
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php(42): Extends_Custom_Elementor_Widgets::get_instance()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): extends_elementor_init('')
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#6 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-s in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 6
+
+2021-12-27T08:05:47+00:00 CRITICAL Uncaught Error: Class 'Elementor\Base' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php:6
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php(29): require_once()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php(22): Extends_Custom_Elementor_Widgets->__construct()
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php(42): Extends_Custom_Elementor_Widgets::get_instance()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): extends_elementor_init('')
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#6 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-s in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 6
+
+2021-12-27T08:06:18+00:00 CRITICAL Uncaught Error: Class 'Elementor\Extends_Testimonial_Carousel_Widget' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php:35
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): Extends_Custom_Elementor_Widgets->register_widgets(Object(Elementor\Widgets_Manager))
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(109): do_action('elementor/widge...', Object(Elementor\Widgets_Manager))
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(302): Elementor\Widgets_Manager->init_widgets()
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/element in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php on line 35
+

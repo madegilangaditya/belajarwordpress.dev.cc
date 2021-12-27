@@ -1,5 +1,5 @@
 class ExtendsTestimonialCarouselElementorHandler extends elementorModules.frontend.handlers.Base {
-	
+
     getDefaultSettings() {
         return {
             selectors: {
@@ -17,9 +17,11 @@ class ExtendsTestimonialCarouselElementorHandler extends elementorModules.fronte
     }
 
     bindEvents() {
+        let inputSlide = document.querySelector('.slide-input').value;
+        
         this.elements.$wrapper.slick({
 			variableWidth: false,
-			slidesToShow: 3,
+			slidesToShow: inputSlide,
 			slidesToScroll: 1,
 			autoplay: true,
 			centerMode: false,

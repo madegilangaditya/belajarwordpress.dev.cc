@@ -3,6 +3,8 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+
+
 class Extends_Testimonial_Carousel_Widget extends Widget_Base {
 
     public function __construct( $data = [], $args = null ) {
@@ -293,7 +295,8 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
 
 		if( $settings['list'] ):
 
-			echo '<div class="extends-testimonial__carousel">';
+			echo '<div class="extends-testimonial__carousel">
+                    <input type="hidden" class="slide-input" value="1">';
 
 				foreach ( $settings['list'] as $item ):?>
                     <div class="zoie-carousel__item elementor-repeater-item-<?php echo $item['_id']; ?> ">
