@@ -177,6 +177,24 @@ header.nav-fixed{
 .demo-home-icon-box:hover .elementor-icon,
 .demo-home-icon-box:hover .elementor-icon-box-content .elementor-icon-box-title,
 .demo-home-icon-box:hover .elementor-icon-box-content .elementor-icon-box-description {
-    color:#fff;
+    color:#fff !important;
     transition:all .3s ease;
+}
+
+// Home Counter
+.demo-home-counter .elementor-counter-number-prefix {
+    display:none;
+}
+
+.demo-home-counter .elementor-counter .elementor-counter-title{
+    text-align:left;
+}
+
+// Home Porto
+.demo-home-porto-col:hover .demo-porto-home-img {
+    transform:scale(.9);
+}
+
+.demo-porto-home-img{
+    transition: all .5s ease;
 }
