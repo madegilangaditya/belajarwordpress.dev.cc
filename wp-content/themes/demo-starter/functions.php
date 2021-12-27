@@ -226,3 +226,10 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Load Elementor Custom
+ */
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+if ( is_plugin_active( 'elementor/elementor.php' ) ) {
+	require_once( get_stylesheet_directory() . '/inc/elementor/init.php' );
+}
