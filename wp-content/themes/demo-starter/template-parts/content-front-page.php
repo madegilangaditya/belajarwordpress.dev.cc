@@ -27,16 +27,18 @@
 <?php demo_starter_post_thumbnail(); ?>
 
 <div class="entry-content">
-    <?php
-    the_content();
+    <div class="container py-lg-5 py-md-4 mt-lg-0 mt-md-4">
+        <?php
+        the_content();
 
-    wp_link_pages(
-        array(
-            'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'demo-starter' ),
-            'after'  => '</div>',
-        )
-    );
-    ?>
+        wp_link_pages(
+            array(
+                'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'demo-starter' ),
+                'after'  => '</div>',
+            )
+        );
+        ?>
+    </div>
 </div><!-- .entry-content -->
 
 <?php if ( get_edit_post_link() ) : ?>

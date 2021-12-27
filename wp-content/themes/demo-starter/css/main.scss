@@ -172,3 +172,11 @@ header.nav-fixed{
     }
 
 }
+
+// home icon box
+.demo-home-icon-box:hover .elementor-icon,
+.demo-home-icon-box:hover .elementor-icon-box-content .elementor-icon-box-title,
+.demo-home-icon-box:hover .elementor-icon-box-content .elementor-icon-box-description {
+    color:#fff;
+    transition:all .3s ease;
+}
