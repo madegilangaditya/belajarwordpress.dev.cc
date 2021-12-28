@@ -22,6 +22,10 @@ $custom-color:(
 // Merge Maps
 $theme-colors: map-merge($theme-colors , $custom-color );
 
+// Import widgets CSS
+@import "./widgets/testimonial-carousel";
+
+// Import Bootsrap CSS
 @import "./bootstrap/scss/bootstrap";
 
 // Then add additional custom code here
@@ -198,3 +202,4 @@ header.nav-fixed{
 .demo-porto-home-img{
     transition: all .5s ease;
 }
+

@@ -6,3 +6,161 @@ Stack trace:
 #3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/element-base.php(447): Elementor\Widget_Base->print_content()
 #4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/element-base.php(741): Elementor\Element_ in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 359
 
+2021-12-28T07:12:40+00:00 CRITICAL syntax error, unexpected 'foreach' (T_FOREACH) in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 377
+
+2021-12-28T07:14:01+00:00 CRITICAL syntax error, unexpected 'foreach' (T_FOREACH) in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 377
+
+2021-12-28T07:14:05+00:00 CRITICAL syntax error, unexpected 'foreach' (T_FOREACH) in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 377
+
+2021-12-28T07:14:49+00:00 CRITICAL syntax error, unexpected 'foreach' (T_FOREACH) in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 377
+
+2021-12-28T07:16:10+00:00 CRITICAL syntax error, unexpected '.' in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 375
+
+2021-12-28T07:16:12+00:00 CRITICAL syntax error, unexpected '.' in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 375
+
+2021-12-28T07:16:25+00:00 CRITICAL syntax error, unexpected '.' in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 375
+
+2021-12-28T07:16:28+00:00 CRITICAL syntax error, unexpected '.' in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 375
+
+2021-12-28T07:16:36+00:00 CRITICAL syntax error, unexpected '.' in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 375
+
+2021-12-28T07:16:38+00:00 CRITICAL syntax error, unexpected '.' in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 375
+
+2021-12-28T08:02:32+00:00 CRITICAL Uncaught TypeError: Argument 1 passed to Elementor\Core\Base\Base_Object::get_items() must be of the type array, null given, called in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php on line 1084 and defined in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php:109
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(1084): Elementor\Core\Base\Base_Object::get_items(NULL, 'elements')
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php(185): Elementor\Controls_Stack->get_data('elements')
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(2231): Elementor\Extends_Testimonial_Carousel_Widget->_register_controls()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/inclu in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php on line 109
+
+2021-12-28T08:20:23+00:00 CRITICAL Uncaught TypeError: Argument 1 passed to Elementor\Controls_Stack::sanitize_settings() must be of the type array, null given, called in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php on line 1079 and defined in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php:2318
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(1079): Elementor\Controls_Stack->sanitize_settings(NULL)
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(2067): Elementor\Controls_Stack->get_data('settings')
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php(142): Elementor\Controls_Stack->get_init_settings()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php(40): Elementor\Core\Base\Base_Obj in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php on line 2318
+
+2021-12-28T08:25:58+00:00 CRITICAL Uncaught Error: Using $this when not in object context in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php:40
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php(374): Elementor\Core\Base\Base_Object::get_settings('slides_per_view')
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(2172): Elementor\Extends_Testimonial_Carousel_Widget->render()
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/widget-base.php(584): Elementor\Controls_Stack->render_by_mode()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/widget-base.php(648): Elementor\Widget_Base->render_content()
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/db.php(202): Elementor\Widget_Base->render_plain_content()
+#5 /Users/emo in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php on line 40
+
+2021-12-28T08:26:06+00:00 CRITICAL Uncaught Error: Using $this when not in object context in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php:40
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php(374): Elementor\Core\Base\Base_Object::get_settings('slides_per_view')
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(2172): Elementor\Extends_Testimonial_Carousel_Widget->render()
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/widget-base.php(584): Elementor\Controls_Stack->render_by_mode()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/widget-base.php(708): Elementor\Widget_Base->render_content()
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/element-base.php(534): Elementor\Widget_Base->get_raw_data(true)
+#5 in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php on line 40
+
+2021-12-28T08:27:19+00:00 CRITICAL Uncaught Error: Using $this when not in object context in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php:40
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php(185): Elementor\Core\Base\Base_Object::get_settings('slides_per_view')
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(2231): Elementor\Extends_Testimonial_Carousel_Widget->_register_controls()
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(480): Elementor\Controls_Stack->init_controls()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/widget-base.php(175): Elementor\Controls_Stack->get_stack()
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(286): Elementor\Widget_Base->get_sta in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php on line 40
+
+2021-12-28T08:27:35+00:00 CRITICAL Uncaught Error: Using $this when not in object context in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php:40
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php(185): Elementor\Core\Base\Base_Object::get_settings('slides_per_view')
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(2231): Elementor\Extends_Testimonial_Carousel_Widget->_register_controls()
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(480): Elementor\Controls_Stack->init_controls()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/widget-base.php(175): Elementor\Controls_Stack->get_stack()
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(286): Elementor\Widget_Base->get_sta in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php on line 40
+
+2021-12-28T08:33:13+00:00 CRITICAL Uncaught Error: Using $this when not in object context in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php:40
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php(185): Elementor\Core\Base\Base_Object::get_settings('slides_per_view')
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(2231): Elementor\Extends_Testimonial_Carousel_Widget->_register_controls()
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(480): Elementor\Controls_Stack->init_controls()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/widget-base.php(175): Elementor\Controls_Stack->get_stack()
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(286): Elementor\Widget_Base->get_sta in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php on line 40
+
+2021-12-28T08:33:36+00:00 CRITICAL syntax error, unexpected '$setting_key' (T_VARIABLE), expecting ')' in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 185
+
+2021-12-28T08:33:38+00:00 CRITICAL syntax error, unexpected '$setting_key' (T_VARIABLE), expecting ')' in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 185
+
+2021-12-28T08:33:58+00:00 CRITICAL syntax error, unexpected '$setting_key' (T_VARIABLE), expecting ')' in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 185
+
+2021-12-28T08:33:59+00:00 CRITICAL syntax error, unexpected '$setting_key' (T_VARIABLE), expecting ')' in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 185
+
+2021-12-28T08:34:01+00:00 CRITICAL syntax error, unexpected '$setting_key' (T_VARIABLE), expecting ')' in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 185
+
+2021-12-28T08:34:02+00:00 CRITICAL syntax error, unexpected '$setting_key' (T_VARIABLE), expecting ')' in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 185
+
+2021-12-28T08:34:21+00:00 CRITICAL syntax error, unexpected '$setting_key' (T_VARIABLE), expecting ')' in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 185
+
+2021-12-28T08:34:22+00:00 CRITICAL syntax error, unexpected '$setting_key' (T_VARIABLE), expecting ')' in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 185
+
+2021-12-28T08:34:38+00:00 CRITICAL Uncaught Error: Using $this when not in object context in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php:40
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php(185): Elementor\Core\Base\Base_Object::get_settings('slides_per_view')
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(2231): Elementor\Extends_Testimonial_Carousel_Widget->_register_controls()
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(480): Elementor\Controls_Stack->init_controls()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/widget-base.php(175): Elementor\Controls_Stack->get_stack()
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(286): Elementor\Widget_Base->get_sta in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php on line 40
+
+2021-12-28T08:36:02+00:00 CRITICAL Uncaught Error: Using $this when not in object context in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php:40
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php(194): Elementor\Core\Base\Base_Object::get_settings('slides_per_view')
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(2231): Elementor\Extends_Testimonial_Carousel_Widget->_register_controls()
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(480): Elementor\Controls_Stack->init_controls()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/widget-base.php(175): Elementor\Controls_Stack->get_stack()
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(286): Elementor\Widget_Base->get_sta in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php on line 40
+
+2021-12-28T08:36:08+00:00 CRITICAL Uncaught Error: Using $this when not in object context in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php:40
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php(194): Elementor\Core\Base\Base_Object::get_settings('slides_per_view')
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(2231): Elementor\Extends_Testimonial_Carousel_Widget->_register_controls()
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(480): Elementor\Controls_Stack->init_controls()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/widget-base.php(175): Elementor\Controls_Stack->get_stack()
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(286): Elementor\Widget_Base->get_sta in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php on line 40
+
+2021-12-28T08:36:57+00:00 CRITICAL Uncaught Error: Using $this when not in object context in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php:40
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php(3): Elementor\Core\Base\Base_Object::get_settings('slides_per_view')
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php(29): require_once('/Users/emosidan...')
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php(22): Extends_Custom_Elementor_Widgets->__construct()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php(42): Extends_Custom_Elementor_Widgets::get_instance()
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): extends_elementor_init('')
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php on line 40
+
+2021-12-28T08:36:58+00:00 CRITICAL Uncaught Error: Using $this when not in object context in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php:40
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php(3): Elementor\Core\Base\Base_Object::get_settings('slides_per_view')
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php(29): require_once('/Users/emosidan...')
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php(22): Extends_Custom_Elementor_Widgets->__construct()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php(42): Extends_Custom_Elementor_Widgets::get_instance()
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): extends_elementor_init('')
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php on line 40
+
+2021-12-28T08:37:01+00:00 CRITICAL Uncaught Error: Using $this when not in object context in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php:40
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php(3): Elementor\Core\Base\Base_Object::get_settings('slides_per_view')
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php(29): require_once('/Users/emosidan...')
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php(22): Extends_Custom_Elementor_Widgets->__construct()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php(42): Extends_Custom_Elementor_Widgets::get_instance()
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): extends_elementor_init('')
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php on line 40
+
+2021-12-28T08:37:02+00:00 CRITICAL Uncaught Error: Using $this when not in object context in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php:40
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php(3): Elementor\Core\Base\Base_Object::get_settings('slides_per_view')
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php(29): require_once('/Users/emosidan...')
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php(22): Extends_Custom_Elementor_Widgets->__construct()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php(42): Extends_Custom_Elementor_Widgets::get_instance()
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): extends_elementor_init('')
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/core/base/base-object.php on line 40
+
+2021-12-28T08:50:00+00:00 CRITICAL syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 184
+
+2021-12-28T08:50:02+00:00 CRITICAL syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 184
+
+2021-12-28T08:50:04+00:00 CRITICAL syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 184
+

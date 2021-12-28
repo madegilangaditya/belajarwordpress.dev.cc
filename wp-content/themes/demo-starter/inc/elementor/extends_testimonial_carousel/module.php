@@ -2,6 +2,7 @@
 namespace Elementor;
 
 
+
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 
@@ -166,6 +167,34 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
                         ],
                     ],
                     'prefix_class' => 'extends-testimonial--align-',
+                ]
+            );
+
+            $slides_per_view = range( 1, 10 );
+		    $slides_per_view = array_combine( $slides_per_view, $slides_per_view );
+
+            $this->add_responsive_control(
+                'slides_per_view',
+                [
+                    'type' => Controls_Manager::SELECT,
+                    'label' => __( 'Slides Per View', 'demo-starter' ),
+                    'options' => [  ] + $slides_per_view,
+                    'default' => 2,
+                    'render_type' => 'template',
+                ]
+                
+            );
+
+            $this->add_responsive_control(
+                
+                'slides_to_scroll',
+                [
+                    'type' => Controls_Manager::SELECT,
+                    'label' => __( 'Slides to Scroll', 'demo-starter' ),
+                    'description' => __( 'Set how many slides are scrolled per swipe.', 'demo-starter' ),
+                    'options' => [ ] + $slides_per_view,
+                    'default' => 2,
+                    'render_type' => 'template',
                 ]
             );
     
@@ -345,10 +374,11 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
+        echo 'asda ';
 
 		if( $settings['list'] ):
-
-			echo '<div class="extends-testimonial__carousel" data-slide="2">';
+            
+			echo '<div class="extends-testimonial__carousel" data-slide="'. $settings['slides_per_view'] .'" data-scroll="'. $settings['slides_to_scroll'] .'">';
 
 				foreach ( $settings['list'] as $item ):?>
                     <div class="extends-testimonial__item elementor-repeater-item-<?php echo $item['_id']; ?> ">

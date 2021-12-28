@@ -18,17 +18,18 @@ class ExtendsTestimonialCarouselElementorHandler extends elementorModules.fronte
 
     bindEvents() {
         let inputSlide = document.querySelector('.extends-testimonial__carousel').getAttribute('data-slide');
+        let inputScroll = document.querySelector('.extends-testimonial__carousel').getAttribute('data-scroll');
         
         this.elements.$wrapper.slick({
 			variableWidth: false,
-			slidesToShow: inputSlide,
-			slidesToScroll: 1,
+			slidesToShow: inputSlide == '' ? 2 : inputSlide,
+			slidesToScroll: inputScroll,
 			autoplay: true,
-			centerMode: false,
+			centerMode: true,
 			focusOnSelect: false,
 			autoplaySpeed: 2000,
 			arrows: true,
-            dots: false,
+            dots: true,
 			infinite: true,
 			pauseOnHover: false,
 			pauseOnFocus: false,
