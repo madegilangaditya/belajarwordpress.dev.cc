@@ -17,7 +17,7 @@ class ExtendsTestimonialCarouselElementorHandler extends elementorModules.fronte
     }
 
     bindEvents() {
-        let inputSlide = document.querySelector('.slide-input').value;
+        let inputSlide = document.querySelector('.extends-testimonial__carousel').getAttribute('data-slide');
         
         this.elements.$wrapper.slick({
 			variableWidth: false,

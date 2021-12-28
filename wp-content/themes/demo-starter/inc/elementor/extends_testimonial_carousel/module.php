@@ -1,6 +1,7 @@
 <?php
 namespace Elementor;
 
+
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 
@@ -53,11 +54,21 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
 
             $repeater = new \Elementor\Repeater();
 
+            $repeater->add_control(
+                'testi_content', [
+                    'label' => __( 'Content', 'demo-starter' ),
+                    'type' => \Elementor\Controls_Manager::TEXTAREA,
+                    'rows' => 10,
+                    'default' => esc_html__( 'Lorem ipsum dolor sit amet int consectetur adipisicing elit. Velita beatae laudantium Quas minima sunt natus tempore, maiores aliquid modi felis vitae facere aperiam sequi optio lacinia id ipsum non velit, culpa. voluptate rem ullam dolore nisi est quasi, doloribus tempora.', 'demo-starter' ),
+                    'placeholder' => esc_html__( 'Type your content here', 'demo-starter' ),
+                    'label_block' => true,
+                ]
+            );
 
             $repeater->add_control(
-                'list_image',
+                'testi_image',
                 [
-                    'label' => __( 'Choose Image', 'demo-starter' ),
+                    'label' => __( 'Image', 'demo-starter' ),
                     'type' => \Elementor\Controls_Manager::MEDIA,
                     'default' => [
                         'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -66,56 +77,98 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
             );
 
             $repeater->add_control(
-                'list_title', [
-                    'label' => __( 'Title', 'demo-starter' ),
+                'testi_name', [
+                    'label' => __( 'Name', 'demo-starter' ),
                     'type' => \Elementor\Controls_Manager::TEXT,
-                    'default' => __( 'List Title' , 'demo-starter' ),
-                    'label_block' => true,
+                    'default' => __( 'John Doe' , 'demo-starter' ),
+                    'label_block' => false,
                 ]
             );
 
             $repeater->add_control(
-                'list_badge', [
-                    'label' => __( 'Title Badge', 'demo-starter' ),
+                'testi_title', [
+                    'label' => __( 'Title', 'demo-starter' ),
                     'type' => \Elementor\Controls_Manager::TEXT,
-                    'label_block' => true,
+                    'default' => __( 'CEO' , 'demo-starter' ),
+                    'label_block' => false,
                 ]
             );
-
-
-            // $repeater->add_control(
-            //     'list_url',
-            //     [
-            //         'label' => __( 'Youtube Url', 'demo-starter' ),
-            //         'type' => \Elementor\Controls_Manager::URL,
-            //         'placeholder' => __( 'https://www.youtube.com/watch?v=r2T-xP-bdOI', 'demo-starter' ),
-            //         'show_external' => true,
-            //         'default' => [
-            //             'url' => '',
-            //             'is_external' => true,
-            //             'nofollow' => true,
-            //         ]
-            //     ]
-            // );
-    
 
             $this->add_control(
                 'list',
                 [
-                    'label' => __( 'Repeater List', 'demo-starter' ),
+                    'label' => __( 'Slides', 'demo-starter' ),
                     'type' => \Elementor\Controls_Manager::REPEATER,
                     'fields' => $repeater->get_controls(),
                     'default' => [
                         [
-                            'list_title' => __( 'Title #1', 'demo-starter' ),
+                            'testi_name' => __( 'Title #1', 'demo-starter' ),
                         ],
                         [
-                            'list_title' => __( 'Title #2', 'demo-starter' ),
+                            'testi_name' => __( 'Title #2', 'demo-starter' ),
                         ],
                     ],
-                    'title_field' => '{{{ list_title }}}',
+                    'title_field' => '{{{ testi_name }}}',
                 ]
             );
+
+            $this->add_control(
+                'skin',
+                [
+                    'label' => __( 'Skin', 'demo-starter' ),
+                    'type' => Controls_Manager::SELECT,
+                    'default' => 'default',
+                    'options' => [
+                        'default' => __( 'Default', 'demo-starter' ),
+                        'bubble' => __( 'Bubble', 'demo-starter' ),
+                    ],
+                    'prefix_class' => 'extends-testimonial--skin-',
+                    'render_type' => 'template',
+                ]
+            );
+
+            $this->add_control(
+                'layout',
+                [
+                    'label' => __( 'Layout', 'demo-starter' ),
+                    'type' => Controls_Manager::SELECT,
+                    'default' => 'image_inline',
+                    'options' => [
+                        'image_inline' => __( 'Image Inline', 'demo-starter' ),
+                        'image_stacked' => __( 'Image Stacked', 'demo-starter' ),
+                        'image_above' => __( 'Image Above', 'demo-starter' ),
+                        'image_left' => __( 'Image Left', 'demo-starter' ),
+                        'image_right' => __( 'Image Right', 'demo-starter' ),
+                    ],
+                    'prefix_class' => 'extends-testimonial--layout-',
+                    'render_type' => 'template',
+                ]
+            );
+
+            $this->add_responsive_control(
+                'alignment',
+                [
+                    'label' => __( 'Alignment', 'demo-starter' ),
+                    'type' => Controls_Manager::CHOOSE,
+                    'default' => 'center',
+                    'options' => [
+                        'left' => [
+                            'title' => __( 'Left', 'demo-starter' ),
+                            'icon' => 'eicon-text-align-left',
+                        ],
+                        'center' => [
+                            'title' => __( 'Center', 'demo-starter' ),
+                            'icon' => 'eicon-text-align-center',
+                        ],
+                        'right' => [
+                            'title' => __( 'Right', 'demo-starter' ),
+                            'icon' => 'eicon-text-align-right',
+                        ],
+                    ],
+                    'prefix_class' => 'extends-testimonial--align-',
+                ]
+            );
+    
 
 		$this->end_controls_section();
 
@@ -295,16 +348,38 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
 
 		if( $settings['list'] ):
 
-			echo '<div class="extends-testimonial__carousel">
-                    <input type="hidden" class="slide-input" value="1">';
+			echo '<div class="extends-testimonial__carousel" data-slide="2">';
 
 				foreach ( $settings['list'] as $item ):?>
-                    <div class="zoie-carousel__item elementor-repeater-item-<?php echo $item['_id']; ?> ">
-                        <?php
-                            echo '<img src="' . $item['list_image']['url'] . '">';
-                        ?>
+                    <div class="extends-testimonial__item elementor-repeater-item-<?php echo $item['_id']; ?> ">
+                        <div class="extends-testimonial__content">
+                            <div class="extends-testimonial__text">
+                                <span class="fa fa-quote-left"></span>
+                                <?php echo $item['testi_content']; ?>
+                            </div>
+                        </div>
+
+                        <div class="extends-testimonial__footer">
+                            <?php if ( $item['testi_image']['url'] ) : ?>
+                                <div class="extends-testimonial__image">
+                                    <img src="<?php echo $item['testi_image']['url']; ?>">
+                                </div>
+                            <?php endif; ?>
+                            <cite class="extends-testimonial__cite">
+                                <?php
+                                    $html= '';
+                                    if ( ! empty( $item['testi_name'] ) ) {
+                                        $html .= '<span class="extends-testimonial__name">' . $item['testi_name'] . '</span>';
+                                    }
+                                    if ( ! empty( $item['testi_title'] ) ) {
+                                        $html .= '<span class="extends-testimonial__title">' . $item['testi_title'] . '</span>';
+                                    }
+                                    echo $html;
+                                ?>
+                            </cite>
+                        </div>
                         
-                            <div class="zoie-carousel__text-content"><?php echo $item['list_title']; ?> <span class="zoie-carousel__text-badge"><?php if($item['list_badge'] != ''){ echo '[' .$item['list_badge']. ']'; } ?> </span></div>
+                            
                         
                     </div>
 				<?php endforeach;

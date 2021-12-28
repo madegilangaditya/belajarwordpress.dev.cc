@@ -1,0 +1,8 @@
+2021-12-28T04:12:49+00:00 CRITICAL Uncaught Error: Call to undefined method Elementor\Extends_Testimonial_Carousel_Widget::print_cite() in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php:359
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(2172): Elementor\Extends_Testimonial_Carousel_Widget->render()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/widget-base.php(584): Elementor\Controls_Stack->render_by_mode()
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/widget-base.php(725): Elementor\Widget_Base->render_content()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/element-base.php(447): Elementor\Widget_Base->print_content()
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/element-base.php(741): Elementor\Element_ in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 359
+
