@@ -375,10 +375,12 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
         echo 'asda ';
-
+        echo '<input type="hidden" id="slide-per-view" value="'.$settings['slides_per_view'].'">';
+        echo '<input type="hidden" id="slide-scroll" value="'.$settings['slides_to_scroll'].'">';
 		if( $settings['list'] ):
             
-			echo '<div class="extends-testimonial__carousel" data-slide="'. $settings['slides_per_view'] .'" data-scroll="'. $settings['slides_to_scroll'] .'">';
+			echo '<div class="extends-testimonial__carousel">';
+            
 
 				foreach ( $settings['list'] as $item ):?>
                     <div class="extends-testimonial__item elementor-repeater-item-<?php echo $item['_id']; ?> ">

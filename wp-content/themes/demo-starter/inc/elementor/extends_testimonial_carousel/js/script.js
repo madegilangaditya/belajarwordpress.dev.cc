@@ -17,15 +17,17 @@ class ExtendsTestimonialCarouselElementorHandler extends elementorModules.fronte
     }
 
     bindEvents() {
-        let inputSlide = document.querySelector('.extends-testimonial__carousel').getAttribute('data-slide');
-        let inputScroll = document.querySelector('.extends-testimonial__carousel').getAttribute('data-scroll');
+        let inputSlide = document.getElementById("slide-per-view").value;
+        let inputScroll = document.getElementById("slide-scroll").value;
+        console.log(`input scroll: ${inputScroll}`);
+        console.log(`input slide: ${inputSlide}`);
         
         this.elements.$wrapper.slick({
 			variableWidth: false,
-			slidesToShow: inputSlide == '' ? 2 : inputSlide,
-			slidesToScroll: inputScroll,
+			slidesToShow: parseInt(inputSlide, 10),
+			slidesToScroll: parseInt(inputScroll,10),
 			autoplay: true,
-			centerMode: true,
+			centerMode: false,
 			focusOnSelect: false,
 			autoplaySpeed: 2000,
 			arrows: true,
