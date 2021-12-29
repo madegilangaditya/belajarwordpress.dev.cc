@@ -12,19 +12,23 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
     public function __construct( $data = [], $args = null ) {
 		parent::__construct( $data, $args );
 
-		wp_register_script( 'slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js', [ 'elementor-frontend' ], '1.8.1', true );
+		// wp_register_script( 'slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js', [ 'elementor-frontend' ], '1.8.1', true );
+        wp_register_script( 'swiper', 'https://unpkg.com/swiper@7/swiper-bundle.min.js', [ 'elementor-frontend' ], _S_VERSION, true );
 		wp_register_script( 'image-carousel-script', get_stylesheet_directory_uri() . '/inc/elementor/extends_testimonial_carousel/js/script.js', array( 'jquery' ), _S_VERSION, true );
 
-		wp_register_style( 'slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css' );
-		wp_register_style( 'slick-theme', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css' );
+		// wp_register_style( 'slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css' );
+		// wp_register_style( 'slick-theme', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css' );
+
+        // load style CSS
+        wp_enqueue_style( 'carousel-style', get_stylesheet_directory_uri(  ) . '/inc/elementor/extends_testimonial_carousel/css/style.css', array(), _S_VERSION );
 	}
 
     public function get_script_depends() {
-		return [ 'slick', 'image-carousel-script' ];
+		return [ 'swiper', 'image-carousel-script' ];
 	}
 
 	public function get_style_depends() {
-		return [ 'slick', 'slick-theme' ];
+		return [ 'carousel-style' ];
 	}
 
 	public function get_name() {
@@ -180,7 +184,7 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
                     'label' => __( 'Slides Per View', 'demo-starter' ),
                     'options' => [  ] + $slides_per_view,
                     'default' => 2,
-                    'render_type' => 'template',
+                    'frontend_available' => true,
                 ]
                 
             );
@@ -194,7 +198,7 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
                     'description' => __( 'Set how many slides are scrolled per swipe.', 'demo-starter' ),
                     'options' => [ ] + $slides_per_view,
                     'default' => 2,
-                    'render_type' => 'template',
+                    'frontend_available' => true,
                 ]
             );
     
@@ -374,16 +378,30 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-        echo 'asda ';
+        
         echo '<input type="hidden" id="slide-per-view" value="'.$settings['slides_per_view'].'">';
         echo '<input type="hidden" id="slide-scroll" value="'.$settings['slides_to_scroll'].'">';
 		if( $settings['list'] ):
             
-			echo '<div class="extends-testimonial__carousel">';
-            
+			//echo '<div class="extends-testimonial__carousel">';
+            ?>
+            <!-- Slider main container -->
+            <div class="elementor-swiper" id="extends-testimonial__carousel">
+                <!-- Additional required wrapper -->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                <?php
 
 				foreach ( $settings['list'] as $item ):?>
-                    <div class="extends-testimonial__item elementor-repeater-item-<?php echo $item['_id']; ?> ">
+                
+                
+                
+                    <!-- Slides -->
+                    <div class="swiper-slide">Slide 1</div>
+                
+                
+                <!-- </div> -->
+                    <!-- <div class="extends-testimonial__item elementor-repeater-item-<?php echo $item['_id']; ?> ">
                         <div class="extends-testimonial__content">
                             <div class="extends-testimonial__text">
                                 <span class="fa fa-quote-left"></span>
@@ -413,10 +431,22 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
                         
                             
                         
-                    </div>
+                    </div> -->
 				<?php endforeach;
 
-			echo '</div>';
+			echo '</div>';?>
+                    </div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <!-- If we need scrollbar -->
+                <div class="swiper-scrollbar"></div>
+            <?php
 			
 		endif;
 	}

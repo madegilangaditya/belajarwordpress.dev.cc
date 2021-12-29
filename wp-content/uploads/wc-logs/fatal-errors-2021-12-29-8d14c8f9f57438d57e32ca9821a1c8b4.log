@@ -1,0 +1,24 @@
+2021-12-29T02:23:51+00:00 CRITICAL Uncaught TypeError: Argument 1 passed to Elementor\Controls_Stack::sanitize_settings() must be of the type array, null given, called in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php on line 1079 and defined in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php:2318
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(1079): Elementor\Controls_Stack->sanitize_settings(NULL)
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/element-base.php(529): Elementor\Controls_Stack->get_data()
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/widget-base.php(699): Elementor\Element_Base->get_raw_data(true)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/element-base.php(534): Elementor\Widget_Base->get_raw_dat in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php on line 2318
+
+2021-12-29T02:24:02+00:00 CRITICAL Uncaught TypeError: Argument 1 passed to Elementor\Controls_Stack::sanitize_settings() must be of the type array, null given, called in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php on line 1079 and defined in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php:2318
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(1079): Elementor\Controls_Stack->sanitize_settings(NULL)
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/element-base.php(529): Elementor\Controls_Stack->get_data()
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/widget-base.php(699): Elementor\Element_Base->get_raw_data(true)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/element-base.php(534): Elementor\Widget_Base->get_raw_dat in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php on line 2318
+
+2021-12-29T03:39:11+00:00 CRITICAL syntax error, unexpected 'wp_register_script' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST) in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 17
+
+2021-12-29T03:39:12+00:00 CRITICAL syntax error, unexpected 'wp_register_script' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST) in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 17
+
+2021-12-29T03:39:57+00:00 CRITICAL syntax error, unexpected 'wp_enqueue_script' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST) in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 17
+
+2021-12-29T03:39:58+00:00 CRITICAL syntax error, unexpected 'wp_enqueue_script' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST) in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 17
+
+2021-12-29T03:39:59+00:00 CRITICAL syntax error, unexpected 'wp_enqueue_script' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST) in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 17
+
