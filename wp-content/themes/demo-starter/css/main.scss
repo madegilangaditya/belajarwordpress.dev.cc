@@ -22,9 +22,6 @@ $custom-color:(
 // Merge Maps
 $theme-colors: map-merge($theme-colors , $custom-color );
 
-// Import widgets CSS
-@import "./widgets/testimonial-carousel";
-
 // Import Bootsrap CSS
 @import "./bootstrap/scss/bootstrap";
 

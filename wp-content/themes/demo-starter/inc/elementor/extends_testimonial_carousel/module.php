@@ -12,12 +12,9 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
     public function __construct( $data = [], $args = null ) {
 		parent::__construct( $data, $args );
 
-		// wp_register_script( 'slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js', [ 'elementor-frontend' ], '1.8.1', true );
+        // Load JS swiper
         wp_register_script( 'swiper', 'https://unpkg.com/swiper@7/swiper-bundle.min.js', [ 'elementor-frontend' ], _S_VERSION, true );
 		wp_register_script( 'image-carousel-script', get_stylesheet_directory_uri() . '/inc/elementor/extends_testimonial_carousel/js/script.js', array( 'jquery' ), _S_VERSION, true );
-
-		// wp_register_style( 'slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css' );
-		// wp_register_style( 'slick-theme', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css' );
 
         // load style CSS
         wp_enqueue_style( 'carousel-style', get_stylesheet_directory_uri(  ) . '/inc/elementor/extends_testimonial_carousel/css/style.css', array(), _S_VERSION );
@@ -177,7 +174,7 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
             $slides_per_view = range( 1, 10 );
 		    $slides_per_view = array_combine( $slides_per_view, $slides_per_view );
 
-            $this->add_responsive_control(
+            $this->add_control(
                 'slides_per_view',
                 [
                     'type' => Controls_Manager::SELECT,
@@ -189,7 +186,7 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
                 
             );
 
-            $this->add_responsive_control(
+            $this->add_control(
                 
                 'slides_to_scroll',
                 [
@@ -202,6 +199,132 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
                 ]
             );
     
+
+		$this->end_controls_section();
+
+        // add additional settings
+        $this->start_controls_section(
+			'section_additional_options',
+			[
+				'label' => __( 'Additional Options', 'demo-starter' ),
+			]
+		);
+
+		$this->add_control(
+			'show_arrows',
+			[
+				'type' => Controls_Manager::SWITCHER,
+				'label' => __( 'Arrows', 'demo-starter' ),
+				'default' => 'yes',
+				'label_off' => __( 'Hide', 'demo-starter' ),
+				'label_on' => __( 'Show', 'demo-starter' ),
+				'prefix_class' => 'elementor-arrows-',
+				'render_type' => 'template',
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'pagination',
+			[
+				'label' => __( 'Pagination', 'demo-starter' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'bullets',
+				'options' => [
+					'' => __( 'None', 'demo-starter' ),
+					'bullets' => __( 'Dots', 'demo-starter' ),
+					'fraction' => __( 'Fraction', 'demo-starter' ),
+					'progressbar' => __( 'Progress', 'demo-starter' ),
+				],
+				'prefix_class' => 'elementor-pagination-type-',
+				'render_type' => 'template',
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'speed',
+			[
+				'label' => __( 'Transition Duration', 'demo-starter' ),
+				'type' => Controls_Manager::NUMBER,
+				'default' => 500,
+				'render_type' => 'none',
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'autoplay',
+			[
+				'label' => __( 'Autoplay', 'demo-starter' ),
+				'type' => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+				'separator' => 'before',
+				'render_type' => 'none',
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'autoplay_speed',
+			[
+				'label' => __( 'Autoplay Speed', 'demo-starter' ),
+				'type' => Controls_Manager::NUMBER,
+				'default' => 5000,
+				'condition' => [
+					'autoplay' => 'yes',
+				],
+				'render_type' => 'none',
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'loop',
+			[
+				'label' => __( 'Infinite Loop', 'demo-starter' ),
+				'type' => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'pause_on_hover',
+			[
+				'label' => __( 'Pause on Hover', 'demo-starter' ),
+				'type' => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+				'condition' => [
+					'autoplay' => 'yes',
+				],
+				'render_type' => 'none',
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'pause_on_interaction',
+			[
+				'label' => __( 'Pause on Interaction', 'demo-starter' ),
+				'type' => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+				'condition' => [
+					'autoplay' => 'yes',
+				],
+				'render_type' => 'none',
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name' => 'image_size',
+				'default' => 'full',
+				'separator' => 'before',
+			]
+		);
 
 		$this->end_controls_section();
 
@@ -381,12 +504,13 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
         
         echo '<input type="hidden" id="slide-per-view" value="'.$settings['slides_per_view'].'">';
         echo '<input type="hidden" id="slide-scroll" value="'.$settings['slides_to_scroll'].'">';
+        
 		if( $settings['list'] ):
             
 			//echo '<div class="extends-testimonial__carousel">';
             ?>
             <!-- Slider main container -->
-            <div class="elementor-swiper" id="extends-testimonial__carousel">
+            <div class="extends-testimonial__carousel elementor-swiper" data-arrows="<?php echo $settings['show_arrows']; ?>" data-pagination="<?php echo $settings['pagination'];?>" data-speed="<?php echo $settings['speed']; ?>" data-auto-speed="<?php echo $settings['autoplay_speed']; ?>" data-pause-hover="<?php echo $settings['pause_on_hover']; ?>" data-pause-interaction="<?php echo $settings['pause_on_interaction']; ?>">
                 <!-- Additional required wrapper -->
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
@@ -397,41 +521,39 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
                 
                 
                     <!-- Slides -->
-                    <div class="swiper-slide">Slide 1</div>
-                
-                
-                <!-- </div> -->
-                    <!-- <div class="extends-testimonial__item elementor-repeater-item-<?php echo $item['_id']; ?> ">
-                        <div class="extends-testimonial__content">
-                            <div class="extends-testimonial__text">
-                                <span class="fa fa-quote-left"></span>
-                                <?php echo $item['testi_content']; ?>
+                    <div class="swiper-slide">
+                        <div class="extends-testimonial__item elementor-repeater-item-<?php echo $item['_id']; ?> ">
+                            <div class="extends-testimonial__content">
+                                <div class="extends-testimonial__text">
+                                    <span class="fa fa-quote-left"></span>
+                                    <?php echo $item['testi_content']; ?>
+                                </div>
+                            </div>
+
+                            <div class="extends-testimonial__footer">
+                                <?php if ( $item['testi_image']['url'] ) : ?>
+                                    <div class="extends-testimonial__image">
+                                        <img src="<?php echo $item['testi_image']['url']; ?>">
+                                    </div>
+                                <?php endif; ?>
+                                <cite class="extends-testimonial__cite">
+                                    <?php
+                                        $html= '';
+                                        if ( ! empty( $item['testi_name'] ) ) {
+                                            $html .= '<span class="extends-testimonial__name">' . $item['testi_name'] . '</span>';
+                                        }
+                                        if ( ! empty( $item['testi_title'] ) ) {
+                                            $html .= '<span class="extends-testimonial__title">' . $item['testi_title'] . '</span>';
+                                        }
+                                        echo $html;
+                                    ?>
+                                </cite>
                             </div>
                         </div>
-
-                        <div class="extends-testimonial__footer">
-                            <?php if ( $item['testi_image']['url'] ) : ?>
-                                <div class="extends-testimonial__image">
-                                    <img src="<?php echo $item['testi_image']['url']; ?>">
-                                </div>
-                            <?php endif; ?>
-                            <cite class="extends-testimonial__cite">
-                                <?php
-                                    $html= '';
-                                    if ( ! empty( $item['testi_name'] ) ) {
-                                        $html .= '<span class="extends-testimonial__name">' . $item['testi_name'] . '</span>';
-                                    }
-                                    if ( ! empty( $item['testi_title'] ) ) {
-                                        $html .= '<span class="extends-testimonial__title">' . $item['testi_title'] . '</span>';
-                                    }
-                                    echo $html;
-                                ?>
-                            </cite>
-                        </div>
-                        
-                            
-                        
-                    </div> -->
+                    </div>
+                
+                
+                
 				<?php endforeach;
 
 			echo '</div>';?>
