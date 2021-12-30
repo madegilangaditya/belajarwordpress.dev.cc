@@ -260,7 +260,7 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 				'separator' => 'before',
-				'render_type' => 'none',
+				'render_type' => 'template',
 				'frontend_available' => true,
 			]
 		);
@@ -314,15 +314,6 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
 				],
 				'render_type' => 'none',
 				'frontend_available' => true,
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Image_Size::get_type(),
-			[
-				'name' => 'image_size',
-				'default' => 'full',
-				'separator' => 'before',
 			]
 		);
 
@@ -510,7 +501,7 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
 			//echo '<div class="extends-testimonial__carousel">';
             ?>
             <!-- Slider main container -->
-            <div class="extends-testimonial__carousel elementor-swiper" data-arrows="<?php echo $settings['show_arrows']; ?>" data-pagination="<?php echo $settings['pagination'];?>" data-speed="<?php echo $settings['speed']; ?>" data-auto-speed="<?php echo $settings['autoplay_speed']; ?>" data-pause-hover="<?php echo $settings['pause_on_hover']; ?>" data-pause-interaction="<?php echo $settings['pause_on_interaction']; ?>">
+            <div class="extends-testimonial__carousel elementor-swiper" data-arrows="<?php echo $settings['show_arrows']; ?>" data-pagination="<?php echo $settings['pagination'];?>" data-speed="<?php echo $settings['speed']; ?>" data-autoplay="<?php echo $settings['autoplay']; ?>" data-auto-speed="<?php echo $settings['autoplay_speed']; ?>" data-pausehover="<?php echo $settings['pause_on_hover']; ?>" data-pauseinteraction="<?php echo $settings['pause_on_interaction']; ?>" data-loop="<?php echo $settings['loop']; ?>">
                 <!-- Additional required wrapper -->
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
@@ -521,7 +512,7 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
                 
                 
                     <!-- Slides -->
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-swiper-autoplay="<?php echo $settings['autoplay_speed']; ?>">
                         <div class="extends-testimonial__item elementor-repeater-item-<?php echo $item['_id']; ?> ">
                             <div class="extends-testimonial__content">
                                 <div class="extends-testimonial__text">

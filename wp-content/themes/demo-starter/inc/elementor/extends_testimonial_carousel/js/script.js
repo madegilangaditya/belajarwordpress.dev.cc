@@ -7,7 +7,6 @@ class ExtendsTestimonialCarouselElementorHandler extends elementorModules.fronte
                 pagination: '.swiper-pagination',
                 next: '.swiper-button-next',
                 prev: '.swiper-button-prev',
-                // slide_add_settings: '.elementor-element',
                 slide_editor_settings: '.extends-testimonial__carousel',
             },
         };
@@ -21,32 +20,37 @@ class ExtendsTestimonialCarouselElementorHandler extends elementorModules.fronte
             $pagination: this.$element.find(selectors.pagination),
             $next: this.$element.find(selectors.next),
             $prev: this.$element.find(selectors.prev),
-            // $slide_add_settings: this.$element.find(selectors.slide_add_settings),
             $slide_editor_settings: this.$element.find(selectors.slide_editor_settings),
         };
     }
     
     bindEvents() {
-        console.log(this.elements.$slide_editor_settings);
         const arrows = this.elements.$slide_editor_settings[0].dataset.arrows;
-        let arrowShow = '';
         if (arrows != 'yes'){
             this.elements.$next.remove();
             this.elements.$prev.remove();
-        } else{
-            arrowShow = false;
+        } 
+
+        const pagination = this.elements.$slide_editor_settings[0].dataset.pagination;
+        if(pagination == ''){
+            this.elements.$pagination.remove();
         }
-        // console.log(this.elements.$slide_editor_settings.prevObject[0].dataset.settings);
-        // let slideSettings = JSON.parse(this.elements.$slide_editor_settings.prevObject[0].dataset.settings);
-        console.log(this.elements.$slide_editor_settings[0].dataset.arrows);
-        console.log(arrowShow);
-        console.log(typeof arrowShow);
-        // console.log(slideSettings.show_arrows);
+
+        const autoPlay = this.elements.$slide_editor_settings[0].dataset.autoplay != 'yes' ? false : true;
+        const pauseOnHover = this.elements.$slide_editor_settings[0].dataset.pausehover == 'yes' ? true:false;
+        const pauseInteraction = this.elements.$slide_editor_settings[0].dataset.pauseinteraction == 'yes' ? true:false;
+        const loop = this.elements.$slide_editor_settings[0].dataset.loop == 'yes' ? true:false;
+        
         const swiper = new Swiper(this.elements.$wrapper[0], {
             slidesPerView: 1,
             slidesPerGroup: 1,
-            autoplay:true,
-            loop:true,
+            autoplay: {
+                autoplay:autoPlay,
+                disableOnInteraction:pauseInteraction,
+                pauseOnMouseEnter:pauseOnHover,
+            },
+            
+            loop:loop,
             speed:500,
             breakpoints: {
                 768: {
@@ -60,13 +64,12 @@ class ExtendsTestimonialCarouselElementorHandler extends elementorModules.fronte
             pagination: {
                 el: this.elements.$pagination[0],
                 clickable: true,
+                type: pagination,
             },
-            // arrowShow,
+
             navigation: {
                 nextEl: this.elements.$next[0],
                 prevEl: this.elements.$prev[0],
-                // // hiddenClass:'.swiper-button-hidden',
-                // disabledClass:'swiper-button-disabled',
             },
         
         });
