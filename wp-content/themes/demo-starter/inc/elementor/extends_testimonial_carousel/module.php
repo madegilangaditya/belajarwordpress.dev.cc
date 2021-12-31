@@ -319,174 +319,228 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
 
 		$this->end_controls_section();
 
-		// Image Style
+        // Style section
         $this->start_controls_section(
-			'image_style_section',
+			'section_slides_style',
 			[
-				'label' => __( 'Image', 'demo-starter' ),
-				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+				'label' => __( 'Slides', 'demo-starter' ),
+				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 
-            $this->add_responsive_control(
-                'image_width',
-                [
-                    'label' => __( 'Width', 'demo-starter' ),
-                    'type' => Controls_Manager::SLIDER,
-                    'size_units' => [ 'px' ],
-                    'range' => [
-                        'px' => [
-                            'min' => 0,
-                            'max' => 1000,
-                            'step' => 1,
-                        ],
-                    ],
-                    'default' => [
-                        'unit' => 'px',
-                        'size' => 400,
-                    ],
-                    'selectors' => [
-                        
-                        '{{WRAPPER}} .zoie-carousel__item' => 'width: {{SIZE}}{{UNIT}};',
-                    ],
-                ]
-            );
+		$space_between_config = [
+			'label' => __( 'Space Between', 'demo-starter' ),
+			'type' => Controls_Manager::SLIDER,
+			'range' => [
+				'px' => [
+					'max' => 50,
+				],
+			],
+			'render_type' => 'template',
+			'frontend_available' => true,
+		];
 
-            $this->add_responsive_control(
-                'image_height',
-                [
-                    'label' => __( 'Height', 'demo-starter' ),
-                    'type' => Controls_Manager::SLIDER,
-                    'size_units' => [ 'px' ],
-                    'range' => [
-                        'px' => [
-                            'min' => 0,
-                            'max' => 1000,
-                            'step' => 1,
-                        ],
-                    ],
-                    'default' => [
-                        'unit' => 'px',
-                        'size' => 400,
-                    ],
-                    'selectors' => [
-                        '{{WRAPPER}} .zoie-image__carousel img' => 'height: {{SIZE}}{{UNIT}}; object-fit: cover;',
-                    ],
-                ]
-            );
+		// TODO: Once Core 3.4.0 is out, get the active devices using Breakpoints/Manager::get_active_devices_list().
+		$active_breakpoint_instances = \Elementor\Core\Breakpoints\Manager::get_active_devices_list();
+		// Devices need to be ordered from largest to smallest.
+		$active_devices = array_reverse( array_keys( $active_breakpoint_instances ) );
 
-			$this->add_responsive_control(
-				'image_spacing',
-				[
-					'label' => __( 'Spacing', 'demo-starter' ),
-					'type' => Controls_Manager::SLIDER,
-					'size_units' => [ 'px' ],
-					'range' => [
-						'px' => [
-							'min' => 0,
-							'max' => 100,
-							'step' => 1,
-						],
+		// Add desktop in the correct position.
+		if ( in_array( 'widescreen', $active_devices, true ) ) {
+			$active_devices = array_merge( array_slice( $active_devices, 0, 1 ), [ 'desktop' ], array_slice( $active_devices, 1 ) );
+		} else {
+			$active_devices = array_merge( [ 'desktop' ], $active_devices );
+		}
+
+		foreach ( $active_devices as $active_device ) {
+			$space_between_config[ $active_device . '_default' ] = [
+				'size' => 10,
+			];
+		}
+
+		$this->add_responsive_control(
+			'space_between',
+			$space_between_config
+		);
+
+		$this->add_control(
+			'slide_background_color',
+			[
+				'label' => __( 'Background Color', 'demo-starter' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-main-swiper .swiper-slide' => 'background-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'slide_border_size',
+			[
+				'label' => __( 'Border Size', 'demo-starter' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-main-swiper .swiper-slide' => 'border-width: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'slide_border_radius',
+			[
+				'label' => __( 'Border Radius', 'demo-starter' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [
+					'%' => [
+						'max' => 50,
 					],
-					'default' => [
-						'unit' => 'px',
-						'size' => 10,
-					],
-					'selectors' => [
-						'{{WRAPPER}} .zoie-carousel__item' => 'margin: 0 {{SIZE}}{{UNIT}};',
-					],
-				]
-			);
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-main-swiper .swiper-slide' => 'border-radius: {{SIZE}}{{UNIT}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'slide_border_color',
+			[
+				'label' => __( 'Border Color', 'demo-starter' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-main-swiper .swiper-slide' => 'border-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'slide_padding',
+			[
+				'label' => __( 'Padding', 'demo-starter' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-main-swiper .swiper-slide' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+				],
+				'separator' => 'before',
+			]
+		);
 
 		$this->end_controls_section();
 
-        // Style Carousel Text
-        $this->start_controls_section(
-			'text_style_section',
+		$this->start_controls_section(
+			'section_navigation',
 			[
-				'label' => __( 'Carousel Text', 'demo-starter' ),
-				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+				'label' => __( 'Navigation', 'demo-starter' ),
+				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 
-            $this->add_control(
-                'text_title_color',
-                [
-                    'label' => __( 'Text Title Color', 'demo-starter' ),
-                    'type' => \Elementor\Controls_Manager::COLOR,
-                    'scheme' => [
-                        'type' => \Elementor\Core\Schemes\Color::get_type(),
-                        'value' => \Elementor\Core\Schemes\Color::COLOR_1,
-                    ],
-                    'selectors' => [
-                        '{{WRAPPER}} .zoie-carousel__text-content' => 'color: {{VALUE}}',
-                    ],
-                ]
-            );
+		$this->add_control(
+			'heading_arrows',
+			[
+				'label' => __( 'Arrows', 'demo-starter' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'none',
+			]
+		);
 
-            $this->add_group_control(
-                \Elementor\Group_Control_Typography::get_type(),
-                [
-                    'name' => 'carousel_text_typography',
-                    'label' => __( 'Typography', 'demo-starter' ),
-                    'scheme' => \Elementor\Core\Schemes\Typography::TYPOGRAPHY_1,
-                    'selector' => '{{WRAPPER}} .zoie-carousel__text-content',
-                ]
-            );
+		$this->add_control(
+			'arrows_size',
+			[
+				'label' => __( 'Size', 'demo-starter' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 20,
+				],
+				'range' => [
+					'px' => [
+						'min' => 10,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-swiper-button' => 'font-size: {{SIZE}}{{UNIT}}',
+				],
+			]
+		);
 
-            $this->add_control(
-                'text_badge_color',
-                [
-                    'label' => __( 'Text Badge Color', 'demo-starter' ),
-                    'type' => \Elementor\Controls_Manager::COLOR,
-                    'scheme' => [
-                        'type' => \Elementor\Core\Schemes\Color::get_type(),
-                        'value' => \Elementor\Core\Schemes\Color::COLOR_1,
-                    ],
-                    'selectors' => [
-                        '{{WRAPPER}} .zoie-carousel__text-content span' => 'color: {{VALUE}}',
-                    ],
-                ]
-            );
+		$this->add_control(
+			'arrows_color',
+			[
+				'label' => __( 'Color', 'demo-starter' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-swiper-button' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .elementor-swiper-button svg' => 'fill: {{VALUE}}',
+				],
+			]
+		);
 
-            $this->add_group_control(
-                \Elementor\Group_Control_Typography::get_type(),
-                [
-                    'name' => 'carousel_badge_typography',
-                    'label' => __( 'Typography', 'demo-starter' ),
-                    'scheme' => \Elementor\Core\Schemes\Typography::TYPOGRAPHY_1,
-                    'selector' => '{{WRAPPER}} .zoie-carousel__text-content span',
-                ]
-            );
+		$this->add_control(
+			'heading_pagination',
+			[
+				'label' => __( 'Pagination', 'demo-starter' ),
+				'type' => Controls_Manager::HEADING,
+				'condition' => [
+					'pagination!' => '',
+				],
+			]
+		);
 
-            $this->add_control(
-                'text_box_color',
-                [
-                    'label' => __( 'Background Color', 'demo-starter' ),
-                    'type' => \Elementor\Controls_Manager::COLOR,
-                    'scheme' => [
-                        'type' => \Elementor\Core\Schemes\Color::get_type(),
-                        'value' => \Elementor\Core\Schemes\Color::COLOR_1,
-                    ],
-                    'selectors' => [
-                        '{{WRAPPER}} .zoie-carousel__text-content' => 'background-color: {{VALUE}}',
-                    ],
-                ]
-            );
+		$this->add_control(
+			'pagination_position',
+			[
+				'label' => __( 'Position', 'demo-starter' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'outside',
+				'options' => [
+					'outside' => __( 'Outside', 'demo-starter' ),
+					'inside' => __( 'Inside', 'demo-starter' ),
+				],
+				'prefix_class' => 'elementor-pagination-position-',
+				'condition' => [
+					'pagination!' => '',
+				],
+			]
+		);
 
-            $this->add_responsive_control(
-                'box_padding',
-                [
-                    'label' => __( 'Text Box Padding', 'demo-starter' ),
-                    'type' => Controls_Manager::DIMENSIONS,
-                    'size_units' => [ 'px', '%', 'em' ],
-                    'selectors' => [
-                        '{{WRAPPER}} .zoie-carousel__text-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    ],
-                ]
-            );
+		$this->add_control(
+			'pagination_size',
+			[
+				'label' => __( 'Size', 'demo-starter' ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'max' => 20,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .swiper-container-horizontal .swiper-pagination-progressbar' => 'height: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .swiper-pagination-fraction' => 'font-size: {{SIZE}}{{UNIT}}',
+				],
+				'condition' => [
+					'pagination!' => '',
+				],
+			]
+		);
 
-        $this->end_controls_section();
+		$this->add_control(
+			'pagination_color',
+			[
+				'label' => __( 'Color', 'demo-starter' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .swiper-pagination-bullet-active, {{WRAPPER}} .swiper-pagination-progressbar-fill' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .swiper-pagination-fraction' => 'color: {{VALUE}}',
+				],
+				'condition' => [
+					'pagination!' => '',
+				],
+			]
+		);
+
+		$this->end_controls_section();
 
 	}
 
@@ -501,7 +555,7 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
 			//echo '<div class="extends-testimonial__carousel">';
             ?>
             <!-- Slider main container -->
-            <div class="extends-testimonial__carousel elementor-swiper" data-arrows="<?php echo $settings['show_arrows']; ?>" data-pagination="<?php echo $settings['pagination'];?>" data-speed="<?php echo $settings['speed']; ?>" data-autoplay="<?php echo $settings['autoplay']; ?>" data-auto-speed="<?php echo $settings['autoplay_speed']; ?>" data-pausehover="<?php echo $settings['pause_on_hover']; ?>" data-pauseinteraction="<?php echo $settings['pause_on_interaction']; ?>" data-loop="<?php echo $settings['loop']; ?>">
+            <div class="extends-testimonial__carousel elementor-swiper" data-arrows="<?php echo $settings['show_arrows']; ?>" data-pagination="<?php echo $settings['pagination'];?>" data-speed="<?php echo $settings['speed']; ?>" data-autoplay="<?php echo $settings['autoplay']; ?>" data-auto-speed="<?php echo $settings['autoplay_speed']; ?>" data-pausehover="<?php echo $settings['pause_on_hover']; ?>" data-pauseinteraction="<?php echo $settings['pause_on_interaction']; ?>" data-loop="<?php echo $settings['loop']; ?>" data-space="<?php echo $settings['space_between']['size']; ?>">
                 <!-- Additional required wrapper -->
                 <div class="swiper-container">
                     <div class="swiper-wrapper">

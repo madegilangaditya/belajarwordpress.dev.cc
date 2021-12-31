@@ -40,6 +40,7 @@ class ExtendsTestimonialCarouselElementorHandler extends elementorModules.fronte
         const pauseOnHover = this.elements.$slide_editor_settings[0].dataset.pausehover == 'yes' ? true:false;
         const pauseInteraction = this.elements.$slide_editor_settings[0].dataset.pauseinteraction == 'yes' ? true:false;
         const loop = this.elements.$slide_editor_settings[0].dataset.loop == 'yes' ? true:false;
+        const spaceBetween = this.elements.$slide_editor_settings[0].dataset.space;
         
         const swiper = new Swiper(this.elements.$wrapper[0], {
             slidesPerView: 1,
@@ -56,7 +57,7 @@ class ExtendsTestimonialCarouselElementorHandler extends elementorModules.fronte
                 768: {
                     slidesPerView: 2,
                     slidesPerGroup: 2,
-                    spaceBetween:20,
+                    spaceBetween:spaceBetween,
                 },
             
             },
