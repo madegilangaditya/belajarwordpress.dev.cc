@@ -36,15 +36,19 @@ class ExtendsTestimonialCarouselElementorHandler extends elementorModules.fronte
             this.elements.$pagination.remove();
         }
 
+        const slidePerView = parseInt(this.elements.$slide_editor_settings[0].dataset.slides);
+        const slideScroll = parseInt(this.elements.$slide_editor_settings[0].dataset.scroll);
         const autoPlay = this.elements.$slide_editor_settings[0].dataset.autoplay != 'yes' ? false : true;
         const pauseOnHover = this.elements.$slide_editor_settings[0].dataset.pausehover == 'yes' ? true:false;
         const pauseInteraction = this.elements.$slide_editor_settings[0].dataset.pauseinteraction == 'yes' ? true:false;
         const loop = this.elements.$slide_editor_settings[0].dataset.loop == 'yes' ? true:false;
-        const spaceBetween = this.elements.$slide_editor_settings[0].dataset.space;
+        const spaceBetween = parseInt(this.elements.$slide_editor_settings[0].dataset.space);
         
+        console.log(slidePerView);
+        console.log(slideScroll);
         const swiper = new Swiper(this.elements.$wrapper[0], {
-            slidesPerView: 1,
-            slidesPerGroup: 1,
+            slidesPerView: slidePerView,
+            slidesPerGroup: slideScroll,
             autoplay: {
                 autoplay:autoPlay,
                 disableOnInteraction:pauseInteraction,
@@ -53,12 +57,18 @@ class ExtendsTestimonialCarouselElementorHandler extends elementorModules.fronte
             
             loop:loop,
             speed:500,
+
+            navigation: {
+                nextEl: this.elements.$next[0],
+                prevEl: this.elements.$prev[0],
+            },
+
             breakpoints: {
                 768: {
-                    slidesPerView: 2,
-                    slidesPerGroup: 2,
+                    slidesPerView: slidePerView,
+                    slidesPerGroup: slideScroll,
                     spaceBetween:spaceBetween,
-                },
+                }
             
             },
         
@@ -68,10 +78,7 @@ class ExtendsTestimonialCarouselElementorHandler extends elementorModules.fronte
                 type: pagination,
             },
 
-            navigation: {
-                nextEl: this.elements.$next[0],
-                prevEl: this.elements.$prev[0],
-            },
+            
         
         });
     }

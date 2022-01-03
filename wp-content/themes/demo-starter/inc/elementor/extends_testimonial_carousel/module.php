@@ -555,7 +555,7 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
 			//echo '<div class="extends-testimonial__carousel">';
             ?>
             <!-- Slider main container -->
-            <div class="extends-testimonial__carousel elementor-swiper" data-arrows="<?php echo $settings['show_arrows']; ?>" data-pagination="<?php echo $settings['pagination'];?>" data-speed="<?php echo $settings['speed']; ?>" data-autoplay="<?php echo $settings['autoplay']; ?>" data-auto-speed="<?php echo $settings['autoplay_speed']; ?>" data-pausehover="<?php echo $settings['pause_on_hover']; ?>" data-pauseinteraction="<?php echo $settings['pause_on_interaction']; ?>" data-loop="<?php echo $settings['loop']; ?>" data-space="<?php echo $settings['space_between']['size']; ?>">
+            <div class="extends-testimonial__carousel elementor-swiper" data-slides="<?php echo $settings['slides_per_view']; ?>" data-scroll="<?php echo $settings['slides_to_scroll'] ?>" data-arrows="<?php echo $settings['show_arrows']; ?>" data-pagination="<?php echo $settings['pagination'];?>" data-speed="<?php echo $settings['speed']; ?>" data-autoplay="<?php echo $settings['autoplay']; ?>" data-pausehover="<?php echo $settings['pause_on_hover']; ?>" data-pauseinteraction="<?php echo $settings['pause_on_interaction']; ?>" data-loop="<?php echo $settings['loop']; ?>" data-space="<?php echo $settings['space_between']['size']; ?>">
                 <!-- Additional required wrapper -->
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
