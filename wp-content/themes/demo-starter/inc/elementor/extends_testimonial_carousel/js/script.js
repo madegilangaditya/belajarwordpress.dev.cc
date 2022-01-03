@@ -43,20 +43,22 @@ class ExtendsTestimonialCarouselElementorHandler extends elementorModules.fronte
         const pauseInteraction = this.elements.$slide_editor_settings[0].dataset.pauseinteraction == 'yes' ? true:false;
         const loop = this.elements.$slide_editor_settings[0].dataset.loop == 'yes' ? true:false;
         const spaceBetween = parseInt(this.elements.$slide_editor_settings[0].dataset.space);
+        const speed = parseInt(this.elements.$slide_editor_settings[0].dataset.speed);
         
         console.log(slidePerView);
-        console.log(slideScroll);
+        console.log(autoPlay);
         const swiper = new Swiper(this.elements.$wrapper[0], {
             slidesPerView: slidePerView,
             slidesPerGroup: slideScroll,
             autoplay: {
-                autoplay:autoPlay,
+                // autoplay:autoPlay,
                 disableOnInteraction:pauseInteraction,
                 pauseOnMouseEnter:pauseOnHover,
             },
+            // autoplay:autoPlay,
             
             loop:loop,
-            speed:500,
+            speed:speed,
 
             navigation: {
                 nextEl: this.elements.$next[0],
@@ -81,6 +83,12 @@ class ExtendsTestimonialCarouselElementorHandler extends elementorModules.fronte
             
         
         });
+
+        if (autoPlay == false) {
+            swiper.autoplay.stop();
+        }else{
+            swiper.autoPlay.start();
+        }
     }
     
     }

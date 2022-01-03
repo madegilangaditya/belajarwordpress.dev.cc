@@ -151,8 +151,7 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
                 'alignment',
                 [
                     'label' => __( 'Alignment', 'demo-starter' ),
-                    'type' => Controls_Manager::CHOOSE,
-                    'default' => 'center',
+                    'type' => \Elementor\Controls_Manager::CHOOSE,
                     'options' => [
                         'left' => [
                             'title' => __( 'Left', 'demo-starter' ),
@@ -167,7 +166,7 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
                             'icon' => 'eicon-text-align-right',
                         ],
                     ],
-                    'prefix_class' => 'extends-testimonial--align-',
+					
                 ]
             );
 
@@ -544,20 +543,45 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
 
 	}
 
+	private function print_cite( $slide, $location ) {
+		if ( empty( $slide['testi_name'] ) && empty( $slide['testi_title'] ) ) {
+			return '';
+		}
+
+		$skin = $this->get_settings( 'skin' );
+		$layout = 'bubble' === $skin ? 'image_inline' : $this->get_settings( 'layout' );
+		$locations_outside = [ 'image_above', 'image_right', 'image_left' ];
+		$locations_inside = [ 'image_inline', 'image_stacked' ];
+
+		$print_outside = ( 'outside' === $location && in_array( $layout, $locations_outside ) );
+		$print_inside = ( 'inside' === $location && in_array( $layout, $locations_inside ) );
+
+		$html = '';
+		if ( $print_outside || $print_inside ) {
+			$html = '<cite class="extends-testimonial__cite">';
+			if ( ! empty( $slide['testi_name'] ) ) {
+				$html .= '<span class="extends-testimonial__name">' . $slide['testi_name'] . '</span>';
+			}
+			if ( ! empty( $slide['testi_title'] ) ) {
+				$html .= '<span class="extends-testimonial__title">' . $slide['testi_title'] . '</span>';
+			}
+			$html .= '</cite>';
+		}
+
+		return $html;
+	}
+
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-        
-        echo '<input type="hidden" id="slide-per-view" value="'.$settings['slides_per_view'].'">';
-        echo '<input type="hidden" id="slide-scroll" value="'.$settings['slides_to_scroll'].'">';
         
 		if( $settings['list'] ):
             
 			//echo '<div class="extends-testimonial__carousel">';
             ?>
             <!-- Slider main container -->
-            <div class="extends-testimonial__carousel elementor-swiper" data-slides="<?php echo $settings['slides_per_view']; ?>" data-scroll="<?php echo $settings['slides_to_scroll'] ?>" data-arrows="<?php echo $settings['show_arrows']; ?>" data-pagination="<?php echo $settings['pagination'];?>" data-speed="<?php echo $settings['speed']; ?>" data-autoplay="<?php echo $settings['autoplay']; ?>" data-pausehover="<?php echo $settings['pause_on_hover']; ?>" data-pauseinteraction="<?php echo $settings['pause_on_interaction']; ?>" data-loop="<?php echo $settings['loop']; ?>" data-space="<?php echo $settings['space_between']['size']; ?>">
+            <div class="extends-testimonial__carousel elementor-swiper extends-testimonial--align-<?php echo $settings['alignment']; ?>" data-slides="<?php echo $settings['slides_per_view']; ?>" data-scroll="<?php echo $settings['slides_to_scroll'] ?>" data-arrows="<?php echo $settings['show_arrows']; ?>" data-pagination="<?php echo $settings['pagination'];?>" data-speed="<?php echo $settings['speed']; ?>" data-autoplay="<?php echo $settings['autoplay']; ?>" data-pausehover="<?php echo $settings['pause_on_hover']; ?>" data-pauseinteraction="<?php echo $settings['pause_on_interaction']; ?>" data-loop="<?php echo $settings['loop']; ?>" data-space="<?php echo $settings['space_between']['size']; ?>">
                 <!-- Additional required wrapper -->
-                <div class="swiper-container">
+                <div class="elementor-main-swiper swiper-container">
                     <div class="swiper-wrapper">
                 <?php
 
@@ -573,6 +597,7 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
                                     <span class="fa fa-quote-left"></span>
                                     <?php echo $item['testi_content']; ?>
                                 </div>
+								<?php echo $this->print_cite( $item, 'outside' ); ?>
                             </div>
 
                             <div class="extends-testimonial__footer">
@@ -581,18 +606,7 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
                                         <img src="<?php echo $item['testi_image']['url']; ?>">
                                     </div>
                                 <?php endif; ?>
-                                <cite class="extends-testimonial__cite">
-                                    <?php
-                                        $html= '';
-                                        if ( ! empty( $item['testi_name'] ) ) {
-                                            $html .= '<span class="extends-testimonial__name">' . $item['testi_name'] . '</span>';
-                                        }
-                                        if ( ! empty( $item['testi_title'] ) ) {
-                                            $html .= '<span class="extends-testimonial__title">' . $item['testi_title'] . '</span>';
-                                        }
-                                        echo $html;
-                                    ?>
-                                </cite>
+                                <?php echo $this->print_cite( $item, 'inside' ); ?>
                             </div>
                         </div>
                     </div>
@@ -608,14 +622,33 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
                 <div class="swiper-pagination"></div>
 
                 <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+                <div class="elementor-swiper-button swiper-button-prev">
+					<?php $this->render_swiper_button( 'previous' ); ?>
+				</div>
+                <div class="elementor-swiper-button swiper-button-next">
+					<?php $this->render_swiper_button( 'next' ); ?>
+				</div>
 
                 <!-- If we need scrollbar -->
                 <div class="swiper-scrollbar"></div>
             <?php
 			
 		endif;
+	}
+
+	private function render_swiper_button( $type ) {
+		$direction = 'next' === $type ? 'right' : 'left';
+
+		if ( is_rtl() ) {
+			$direction = 'right' === $direction ? 'left' : 'right';
+		}
+
+		$icon_value = 'eicon-chevron-' . $direction;
+
+		Icons_Manager::render_icon( [
+			'library' => 'eicons',
+			'value' => $icon_value,
+		], [ 'aria-hidden' => 'true' ] );
 	}
 
 }

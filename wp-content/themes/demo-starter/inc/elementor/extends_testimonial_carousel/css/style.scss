@@ -1,4 +1,100 @@
+.swiper-slide{
+    border-style: solid;
+}
 
 .swiper-pagination{
-    background: #fff;
+    text-align: center;
+    width: 100%;
+
+    .swiper-pagination-bullet{
+        margin: 0 6px;
+        background: white;
+        opacity: .9;
+    }
+}
+
+.swiper-button-prev,
+.swiper-button-next{
+    background-image: none;
+}
+
+.swiper-button-next{
+    right: 0;
+}
+
+.swiper-button-prev{
+    left: 0;
+}
+
+// temp width
+.extends-testimonial__carousel img{
+    width:50px;
+    height: 50px;  
+    border-radius: 50%;
+}
+
+.extends-testimonial__footer{
+    display:flex;
+    gap:20px
+}
+
+// align center
+.extends-testimonial--align-center .extends-testimonial__footer{
+    justify-content:center;
+}
+
+.extends-testimonial--align-center{
+    text-align:center;
+}
+
+.extends-testimonial--align-center.extends-testimonial--layout-image_inline .extends-testimonial__image+cite{
+    text-align:left;
+}
+
+// align right
+.extends-testimonial--align-right .extends-testimonial__footer{
+    flex-direction: row-reverse;
+}
+
+.extends-testimonial--align-right{
+    text-align:right;
+}
+
+// Testi layout
+.extends-testimonial__cite{
+    display: flex;
+    flex-direction: column;
+}
+
+// Image stacked layout
+.extends-testimonial--layout-image_stacked .extends-testimonial__footer{
+    flex-direction: column;
+}
+
+// Image Above layout
+.extends-testimonial--layout-image_above .extends-testimonial__item {
+    display:flex;
+    flex-direction:column-reverse;
+}
+
+// Image left and iamge right layout
+.extends-testimonial--layout-image_left .extends-testimonial__item,
+.extends-testimonial--layout-image_right .extends-testimonial__item {
+    display:flex;
+    gap: 1em;
+}
+
+// Image Left layout
+.extends-testimonial--layout-image_left .extends-testimonial__item {
+    flex-direction:row-reverse;
+}
+
+// Image right layout
+.extends-testimonial--layout-image_right .extends-testimonial__item {
+    flex-direction:row;
+}
+
+.extends-testimonial--layout-image_left .extends-testimonial__footer,
+.extends-testimonial--layout-image_right .extends-testimonial__footer{
+    flex-shrink: 0;
 }
