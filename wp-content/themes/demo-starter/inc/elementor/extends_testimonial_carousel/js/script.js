@@ -48,8 +48,8 @@ class ExtendsTestimonialCarouselElementorHandler extends elementorModules.fronte
         console.log(slidePerView);
         console.log(autoPlay);
         const swiper = new Swiper(this.elements.$wrapper[0], {
-            slidesPerView: slidePerView,
-            slidesPerGroup: slideScroll,
+            slidesPerView: 1,
+            slidesPerGroup: 1,
             autoplay: {
                 // autoplay:autoPlay,
                 disableOnInteraction:pauseInteraction,

@@ -51,6 +51,11 @@
     text-align:left;
 }
 
+.extends-testimonial__text span{
+    color: var(--e-global-color-primary);
+    margin-right: 10px;
+}
+
 // align right
 .extends-testimonial--align-right .extends-testimonial__footer{
     flex-direction: row-reverse;
@@ -64,6 +69,7 @@
 .extends-testimonial__cite{
     display: flex;
     flex-direction: column;
+    font-style: normal;
 }
 
 // Image stacked layout
@@ -97,4 +103,79 @@
 .extends-testimonial--layout-image_left .extends-testimonial__footer,
 .extends-testimonial--layout-image_right .extends-testimonial__footer{
     flex-shrink: 0;
+    flex-direction: column;
+    justify-content: flex-start;
 }
+
+// Bubble skin
+.extends-testimonial--skin-bubble .extends-testimonial__content{
+    background-color: #e6e9ec;
+    padding: 20px;
+    position: relative;
+}
+
+.extends-testimonial--skin-bubble .extends-testimonial__content:after{
+    content: "";
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-color: #e6e9ec;
+    position: absolute;
+    transform: scaleX(.75) rotate(45deg);
+    border-width: 0;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+// align center image inline and stacked
+@mixin skin-theme ($layout, $align, $direction, $dirsize, $transform){
+    @if $layout == 'inline' and $align == 'center' {
+        .extends-testimonial--skin-bubble.extends-testimonial--layout-image_#{$layout} .extends-testimonial--align-#{$align} .extends-testimonial__content:after,
+        .extends-testimonial--skin-bubble.extends-testimonial--layout-image_stacked .extends-testimonial--align-#{$align} .extends-testimonial__content:after{
+            #{$direction}:$dirsize;
+            transform: $transform;
+            top: calc(100% - 7px);
+        }
+    }
+    @if $layout == 'inline'{
+        .extends-testimonial--skin-bubble.extends-testimonial--layout-image_#{$layout} .extends-testimonial__content:after,
+        .extends-testimonial--skin-bubble.extends-testimonial--layout-image_stacked .extends-testimonial__content:after{
+            top: calc(100% - 7px);
+        }
+    }
+    @if $layout == 'above' and $align == 'center' {
+        .extends-testimonial--skin-bubble.extends-testimonial--layout-image_#{$layout} .extends-testimonial--align-#{$align} .extends-testimonial__content:after{
+            #{$direction}:$dirsize;
+            transform: $transform;
+            bottom: calc(100% - 7px);
+        }
+    }
+
+    @if $layout == 'above' {
+        .extends-testimonial--skin-bubble.extends-testimonial--layout-image_above .extends-testimonial__content:after{
+            bottom: calc(100% - 7px);
+            transform: $transform;
+        }
+    }
+
+    @if $layout == 'left' {
+        .extends-testimonial--skin-bubble.extends-testimonial--layout-image_#{$layout} .extends-testimonial__content:after{
+            #{$direction}:$dirsize;
+            transform: $transform;
+        }
+    }
+
+    @if $layout == 'right' {
+        .extends-testimonial--skin-bubble.extends-testimonial--layout-image_#{$layout} .extends-testimonial__content:after{
+            #{$direction}:$dirsize;
+            transform: $transform;
+        }
+    }
+}
+
+@include skin-theme('inline', 'center', 'left', 50%, translateX(-50%) scaleX(.75) rotate(45deg));
+@include skin-theme('inline', '', '', '', '');
+@include skin-theme('above', 'center', 'left', 50%, translateX(-50%) scaleX(.75) rotate(-135deg));
+@include skin-theme('above', '', '', '', scaleX(.75) rotate(-135deg));
+@include skin-theme('left', '', 'left', -7px, scaleY(.75) rotate(135deg));
+@include skin-theme('right', '', 'right', -7px, scaleY(.75) rotate(135deg));

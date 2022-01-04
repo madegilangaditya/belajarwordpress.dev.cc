@@ -1,7 +1,8 @@
 <?php
 namespace Elementor;
 
-
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
+use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -13,7 +14,7 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
 		parent::__construct( $data, $args );
 
         // Load JS swiper
-        wp_register_script( 'swiper', 'https://unpkg.com/swiper@7/swiper-bundle.min.js', [ 'elementor-frontend' ], _S_VERSION, true );
+        wp_register_script( 'swiper', '/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js', [ 'elementor-frontend' ], _S_VERSION, true );
 		wp_register_script( 'image-carousel-script', get_stylesheet_directory_uri() . '/inc/elementor/extends_testimonial_carousel/js/script.js', array( 'jquery' ), _S_VERSION, true );
 
         // load style CSS
@@ -427,6 +428,7 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
 
 		$this->end_controls_section();
 
+		// Navigation Style
 		$this->start_controls_section(
 			'section_navigation',
 			[
@@ -540,6 +542,396 @@ class Extends_Testimonial_Carousel_Widget extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+
+		// Buble skin style
+		$this->start_controls_section(
+			'section_skin_style',
+			[
+				'label' => __( 'Bubble', 'demo-starter' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'skin' => 'bubble',
+				],
+			]
+		);
+
+		$this->add_control(
+			'background_color',
+			[
+				'label' => __( 'Background Color', 'demo-starter' ),
+				'type' => Controls_Manager::COLOR,
+				'alpha' => false,
+				'selectors' => [
+					'{{WRAPPER}} .extends-testimonial__content, {{WRAPPER}} .extends-testimonial__content:after' => 'background-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'text_padding',
+			[
+				'label' => __( 'Padding', 'demo-starter' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '20',
+					'bottom' => '20',
+					'left' => '20',
+					'right' => '20',
+					'unit' => 'px',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .extends-testimonial__content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
+					'{{WRAPPER}}.extends-testimonial--layout-image_left .extends-testimonial__footer,
+					{{WRAPPER}}.extends-testimonial--layout-image_right .extends-testimonial__footer' => 'padding-top: {{TOP}}{{UNIT}}',
+					'{{WRAPPER}}.extends-testimonial--layout-image_above .extends-testimonial__footer,
+					{{WRAPPER}}.extends-testimonial--layout-image_inline .extends-testimonial__footer,
+					{{WRAPPER}}.extends-testimonial--layout-image_stacked .extends-testimonial__footer' => 'padding: 0 {{RIGHT}}{{UNIT}} 0 {{LEFT}}{{UNIT}}',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'border_radius',
+			[
+				'label' => __( 'Border Radius', 'demo-starter' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'{{WRAPPER}} .extends-testimonial__content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'border',
+			[
+				'label' => __( 'Border', 'demo-starter' ),
+				'type' => Controls_Manager::SWITCHER,
+				'selectors' => [
+					'{{WRAPPER}} .extends-testimonial__content, {{WRAPPER}} .extends-testimonial__content:after' => 'border-style: solid',
+				],
+			]
+		);
+
+		$this->add_control(
+			'border_color',
+			[
+				'label' => __( 'Border Color', 'demo-starter' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#000',
+				'selectors' => [
+					'{{WRAPPER}} .extends-testimonial__content' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .extends-testimonial__content:after' => 'border-color: transparent {{VALUE}} {{VALUE}} transparent !important',
+				],
+				'condition' => [
+					'border' => 'yes',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'border_width',
+			[
+				'label' => __( 'Border Width', 'demo-starter' ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 20,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .extends-testimonial__content, {{WRAPPER}} .extends-testimonial__content:after' => 'border-width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}}.extends-testimonial--layout-image_stacked .extends-testimonial__content:after,
+					{{WRAPPER}}.extends-testimonial--layout-image_inline .extends-testimonial__content:after' => 'margin-top: -{{SIZE}}{{UNIT}}',
+					'{{WRAPPER}}.extends-testimonial--layout-image_above .extends-testimonial__content:after' => 'margin-bottom: -{{SIZE}}{{UNIT}}',
+					'{{WRAPPER}}.extends-testimonial--layout-image_left .extends-testimonial__content:after' => 'margin-left: -{{SIZE}}{{UNIT}}',
+					'{{WRAPPER}}.extends-testimonial--layout-image_right .extends-testimonial__content:after' => 'margin-right: -{{SIZE}}{{UNIT}}',
+					
+				],
+				'condition' => [
+					'border' => 'yes',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+		// Testimonial content style
+		$this->start_injection( [
+			'at' => 'before',
+			'of' => 'section_navigation',
+		] );
+
+		$this->start_controls_section(
+			'section_content_style',
+			[
+				'label' => __( 'Content', 'demo-starter' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_responsive_control(
+			'content_gap',
+			[
+				'label' => __( 'Gap', 'demo-starter' ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}}.extends-testimonial--layout-image_inline .extends-testimonial__footer,
+					{{WRAPPER}}.extends-testimonial--layout-image_stacked .extends-testimonial__footer' => 'margin-top: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}}.extends-testimonial--layout-image_above .extends-testimonial__footer' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}}.extends-testimonial--layout-image_left .extends-testimonial__footer' => 'padding-right: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}}.extends-testimonial--layout-image_right .extends-testimonial__footer' => 'padding-left: {{SIZE}}{{UNIT}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'content_color',
+			[
+				'label' => __( 'Text Color', 'demo-starter' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .extends-testimonial__text' => 'color: {{VALUE}}',
+				],
+				'global' => [
+					'default' => Global_Colors::COLOR_TEXT,
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'content_typography',
+				'selector' => '{{WRAPPER}} .extends-testimonial__text',
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_TEXT,
+				],
+			]
+		);
+
+		$this->add_control(
+			'name_title_style',
+			[
+				'label' => __( 'Name', 'demo-starter' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'name_color',
+			[
+				'label' => __( 'Text Color', 'demo-starter' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .extends-testimonial__name' => 'color: {{VALUE}}',
+				],
+				'global' => [
+					'default' => Global_Colors::COLOR_TEXT,
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'name_typography',
+				'selector' => '{{WRAPPER}} .extends-testimonial__name',
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
+				],
+			]
+		);
+
+		$this->add_control(
+			'heading_title_style',
+			[
+				'label' => __( 'Title', 'demo-starter' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'title_color',
+			[
+				'label' => __( 'Text Color', 'demo-starter' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .extends-testimonial__title' => 'color: {{VALUE}}',
+				],
+				'global' => [
+					'default' => Global_Colors::COLOR_PRIMARY,
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'title_typography',
+				'selector' => '{{WRAPPER}} .extends-testimonial__title',
+				'global' => [
+					'default' => Global_Typography::TYPOGRAPHY_SECONDARY,
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_image_style',
+			[
+				'label' => __( 'Image', 'demo-starter' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_responsive_control(
+			'image_size',
+			[
+				'label' => __( 'Size', 'demo-starter' ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 200,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .extends-testimonial__image img' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}}.extends-testimonial--layout-image_left .extends-testimonial__content:after,
+					 {{WRAPPER}}.extends-testimonial--layout-image_right .extends-testimonial__content:after' => 'top: calc( {{text_padding.TOP}}{{text_padding.UNIT}} + ({{SIZE}}{{UNIT}} / 2) - 8px );',
+
+					'body:not(.rtl) {{WRAPPER}}.extends-testimonial--layout-image_stacked .extends-testimonial__carousel:not(.extends-testimonial--align-center):not(.extends-testimonial--align-right) .extends-testimonial__content:after,
+					 body:not(.rtl) {{WRAPPER}}.extends-testimonial--layout-image_inline .extends-testimonial__carousel:not(.extends-testimonial--align-center) .extends-testimonial__carousel:not(.extends-testimonial--align-right) .extends-testimonial__content:after,
+					 {{WRAPPER}}.extends-testimonial--layout-image_stacked .extends-testimonial--align-left .extends-testimonial__content:after,
+					 {{WRAPPER}}.extends-testimonial--layout-image_inline .extends-testimonial--align-left .extends-testimonial__content:after' => 'left: calc( {{text_padding.LEFT}}{{text_padding.UNIT}} + ({{SIZE}}{{UNIT}} / 2) - 8px ); right:auto;',
+
+					'body.rtl {{WRAPPER}}.extends-testimonial--layout-image_stacked .extends-testimonial__carousel:not(.extends-testimonial--align-center) .extends-testimonial__carousel:not(.extends-testimonial--align-left) .extends-testimonial__content:after,
+					 body.rtl {{WRAPPER}}.extends-testimonial--layout-image_inline .extends-testimonial__carousel:not(.extends-testimonial--align-center) .extends-testimonial__carousel:not(.extends-testimonial--align-left) .extends-testimonial__content:after,
+					 {{WRAPPER}}.extends-testimonial--layout-image_stacked .extends-testimonial--align-right .extends-testimonial__content:after,
+					 {{WRAPPER}}.extends-testimonial--layout-image_inline .extends-testimonial--align-right .extends-testimonial__content:after' => 'right: calc( {{text_padding.RIGHT}}{{text_padding.UNIT}} + ({{SIZE}}{{UNIT}} / 2) - 8px ); left:auto;',
+
+					'body:not(.rtl) {{WRAPPER}}.extends-testimonial--layout-image_above .extends-testimonial__carousel:not(.extends-testimonial--align-center) .extends-testimonial__carousel:not(.extends-testimonial--align-right) .extends-testimonial__content:after,
+					 {{WRAPPER}}.extends-testimonial--layout-image_above .extends-testimonial--align-left .extends-testimonial__content:after' => 'left: calc( {{text_padding.LEFT}}{{text_padding.UNIT}} + ({{SIZE}}{{UNIT}} / 2) - 8px ); right:auto;',
+
+					'body.rtl {{WRAPPER}}.extends-testimonial--layout-image_above .extends-testimonial__carousel:not(.extends-testimonial--align-center) .extends-testimonial__carousel:not(.extends-testimonial--align-left) .extends-testimonial__content:after,
+					 {{WRAPPER}}.extends-testimonial--layout-image_above .extends-testimonial--align-right .extends-testimonial__content:after' => 'right: calc( {{text_padding.RIGHT}}{{text_padding.UNIT}} + ({{SIZE}}{{UNIT}} / 2) - 8px ); left:auto;',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'image_gap',
+			[
+				'label' => __( 'Gap', 'demo-starter' ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'body.rtl {{WRAPPER}}.extends-testimonial--layout-image_inline .extends-testimonial--align-left .extends-testimonial__image + cite,
+					 body.rtl {{WRAPPER}}.extends-testimonial--layout-image_above .extends-testimonial--align-left .extends-testimonial__image + cite,
+					 body:not(.rtl) {{WRAPPER}}.extends-testimonial--layout-image_inline .extends-testimonial__image + cite,
+					 body:not(.rtl) {{WRAPPER}}.extends-testimonial--layout-image_above .extends-testimonial__image + cite' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: 0;',
+
+					'body:not(.rtl) {{WRAPPER}}.extends-testimonial--layout-image_inline .extends-testimonial--align-right .extends-testimonial__image + cite,
+					 body:not(.rtl) {{WRAPPER}}.extends-testimonial--layout-image_above .extends-testimonial--align-right .extends-testimonial__image + cite,
+					 body.rtl {{WRAPPER}}.extends-testimonial--layout-image_inline .extends-testimonial__image + cite,
+					 body.rtl {{WRAPPER}}.extends-testimonial--layout-image_above .extends-testimonial__image + cite' => 'margin-right: {{SIZE}}{{UNIT}}; margin-left:0;',
+
+					'{{WRAPPER}}.extends-testimonial--layout-image_stacked .extends-testimonial__image + cite,
+					 {{WRAPPER}}.extends-testimonial--layout-image_left .extends-testimonial__image + cite,
+					 {{WRAPPER}}.extends-testimonial--layout-image_right .extends-testimonial__image + cite' => 'margin-top: {{SIZE}}{{UNIT}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'image_border',
+			[
+				'label' => __( 'Border', 'demo-starter' ),
+				'type' => Controls_Manager::SWITCHER,
+				'selectors' => [
+					'{{WRAPPER}} .extends-testimonial__image img' => 'border-style: solid',
+				],
+			]
+		);
+
+		$this->add_control(
+			'image_border_color',
+			[
+				'label' => __( 'Border Color', 'demo-starter' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#000',
+				'selectors' => [
+					'{{WRAPPER}} .extends-testimonial__image img' => 'border-color: {{VALUE}}',
+				],
+				'condition' => [
+					'image_border' => 'yes',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'image_border_width',
+			[
+				'label' => __( 'Border Width', 'demo-starter' ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 20,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .extends-testimonial__image img' => 'border-width: {{SIZE}}{{UNIT}}',
+				],
+				'condition' => [
+					'image_border' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'image_border_radius',
+			[
+				'label' => __( 'Border Radius', 'demo-starter' ),
+				'type' => Controls_Manager::SLIDER,
+				'selectors' => [
+					'{{WRAPPER}} .extends-testimonial__image img' => 'border-radius: {{SIZE}}{{UNIT}}',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->end_injection();
+
+		// $this->update_responsive_control(
+		// 	'width',
+		// 	[
+		// 		'selectors' => [
+		// 			'{{WRAPPER}}.extends-arrows-yes .extends-main-swiper' => 'width: calc( {{SIZE}}{{UNIT}} - 40px )',
+		// 			'{{WRAPPER}} .extends-main-swiper' => 'width: {{SIZE}}{{UNIT}}',
+		// 		],
+		// 	]
+		// );
+
+		
 
 	}
 

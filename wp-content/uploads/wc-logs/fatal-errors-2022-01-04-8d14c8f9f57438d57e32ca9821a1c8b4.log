@@ -1,0 +1,9 @@
+2022-01-04T01:57:40+00:00 CRITICAL Uncaught Error: Class 'Elementor\Global_Colors' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php:701
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(2231): Elementor\Extends_Testimonial_Carousel_Widget->_register_controls()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(480): Elementor\Controls_Stack->init_controls()
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/widget-base.php(175): Elementor\Controls_Stack->get_stack()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(286): Elementor\Widget_Base->get_stack()
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(2320): Elementor\Controls_Stack->get_controls()
+#5 /Use in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/extends_testimonial_carousel/module.php on line 701
+
