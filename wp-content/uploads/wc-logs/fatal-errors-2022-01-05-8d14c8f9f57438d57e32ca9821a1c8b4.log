@@ -1,0 +1,216 @@
+2022-01-05T01:50:08+00:00 CRITICAL Cannot redeclare add_elementor_widget_categories() (previously declared in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php:5) in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php on line 28
+
+2022-01-05T01:50:11+00:00 CRITICAL Cannot redeclare add_elementor_widget_categories() (previously declared in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php:5) in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php on line 28
+
+2022-01-05T01:50:11+00:00 CRITICAL Cannot redeclare add_elementor_widget_categories() (previously declared in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/themes/demo-starter/inc/elementor/init.php:5) in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php on line 28
+
+2022-01-05T02:21:30+00:00 CRITICAL require_once(): Failed opening required '/Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/blog-posts.php' (include_path='.:/Applications/XAMPP/xamppfiles/lib/php') in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php on line 42
+
+2022-01-05T02:22:33+00:00 CRITICAL Uncaught Error: Class 'Posts_Base' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php:13
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php(42): require_once()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): register_list_widget(Object(Elementor\Widgets_Manager))
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(120): do_action('elementor/widge...', Object(Elementor\Widgets_Manager))
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(302): Elementor\Widgets_Manager->init_wid in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php on line 13
+
+2022-01-05T02:26:00+00:00 CRITICAL Uncaught Error: Class 'Widgets\Posts\Posts_Base' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php:16
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php(42): require_once()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): register_list_widget(Object(Elementor\Widgets_Manager))
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(120): do_action('elementor/widge...', Object(Elementor\Widgets_Manager))
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(302): Elementor\Widgets_Man in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php on line 16
+
+2022-01-05T02:28:52+00:00 CRITICAL syntax error, unexpected '__DIR__' (T_DIR), expecting '{' in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php on line 3
+
+2022-01-05T02:35:43+00:00 CRITICAL Uncaught Error: Undefined constant 'Widgets\Posts' in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php:3
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php(42): require_once()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): register_list_widget(Object(Elementor\Widgets_Manager))
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(120): do_action('elementor/widge...', Object(Elementor\Widgets_Manager))
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(302): Elementor\Widgets_Manager->ini in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php on line 3
+
+2022-01-05T02:38:10+00:00 CRITICAL Uncaught Error: Class 'Widgets\Posts\Posts_Base' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php:16
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php(42): require_once()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): register_list_widget(Object(Elementor\Widgets_Manager))
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(120): do_action('elementor/widge...', Object(Elementor\Widgets_Manager))
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(302): Elementor\Widgets_Man in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php on line 16
+
+2022-01-05T02:42:49+00:00 CRITICAL Uncaught Error: Class 'ExtendsWidgets\Widgets\Posts\Posts_Base' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php:16
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php(42): require_once()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): register_list_widget(Object(Elementor\Widgets_Manager))
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(120): do_action('elementor/widge...', Object(Elementor\Widgets_Manager))
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(302): Elemen in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php on line 16
+
+2022-01-05T02:43:50+00:00 CRITICAL Uncaught Error: Class 'Posts_Base' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php:16
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php(42): require_once()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): register_list_widget(Object(Elementor\Widgets_Manager))
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(120): do_action('elementor/widge...', Object(Elementor\Widgets_Manager))
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(302): Elementor\Widgets_Manager->init_wid in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php on line 16
+
+2022-01-05T02:44:57+00:00 CRITICAL Uncaught Error: Class 'Posts\Posts_Base' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php:16
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php(42): require_once()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): register_list_widget(Object(Elementor\Widgets_Manager))
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(120): do_action('elementor/widge...', Object(Elementor\Widgets_Manager))
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(302): Elementor\Widgets_Manager->in in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php on line 16
+
+2022-01-05T02:48:38+00:00 CRITICAL Uncaught Error: Class 'Elementor\Posts\Posts_Base' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php:16
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php(42): require_once()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): register_list_widget(Object(Elementor\Widgets_Manager))
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(120): do_action('elementor/widge...', Object(Elementor\Widgets_Manager))
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(302): Elementor\Widgets_M in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php on line 16
+
+2022-01-05T02:48:55+00:00 CRITICAL Uncaught Error: Class 'Elementor\Posts_Base' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php:16
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php(42): require_once()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): register_list_widget(Object(Elementor\Widgets_Manager))
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(120): do_action('elementor/widge...', Object(Elementor\Widgets_Manager))
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(302): Elementor\Widgets_Manager in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php on line 16
+
+2022-01-05T02:50:29+00:00 CRITICAL Uncaught Error: Class 'Posts_Base' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php:16
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php(42): require_once()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): register_list_widget(Object(Elementor\Widgets_Manager))
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(120): do_action('elementor/widge...', Object(Elementor\Widgets_Manager))
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(302): Elementor\Widgets_Manager->init_wid in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php on line 16
+
+2022-01-05T02:51:06+00:00 CRITICAL Uncaught Error: Call to undefined method Extends_Posts_Widget::register_button_content_controls() in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php:373
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php(48): Posts_Base->register_pagination_section_controls()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(2233): Extends_Posts_Widget->register_controls()
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(480): Elementor\Controls_Stack->init_controls()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/widget-base.php(175): Elementor\Controls_Stack->get_stack()
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(341): Elementor\Widget_Base- in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php on line 373
+
+2022-01-05T02:51:41+00:00 CRITICAL Uncaught Error: Class 'Posts_Base' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php:16
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php(42): require_once()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): register_list_widget(Object(Elementor\Widgets_Manager))
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(120): do_action('elementor/widge...', Object(Elementor\Widgets_Manager))
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(302): Elementor\Widgets_Manager->init_wid in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php on line 16
+
+2022-01-05T02:56:05+00:00 CRITICAL Uncaught Error: Class 'Posts_Base' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php:17
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php(42): require_once()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): register_list_widget(Object(Elementor\Widgets_Manager))
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(120): do_action('elementor/widge...', Object(Elementor\Widgets_Manager))
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(302): Elementor\Widgets_Manager->init_wid in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php on line 17
+
+2022-01-05T02:57:52+00:00 CRITICAL Uncaught Error: Class 'ExtendsEle\Widgets\Posts\Posts_Base' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php:17
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php(42): require_once()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): register_list_widget(Object(Elementor\Widgets_Manager))
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(120): do_action('elementor/widge...', Object(Elementor\Widgets_Manager))
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(302): Elementor\ in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php on line 17
+
+2022-01-05T03:05:46+00:00 CRITICAL Uncaught Error: Class 'ExtendsEle\Widgets\Posts\Posts_Base' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php:17
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php(51): require_once()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): register_list_widget(Object(Elementor\Widgets_Manager))
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(120): do_action('elementor/widge...', Object(Elementor\Widgets_Manager))
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(302): Elementor\ in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php on line 17
+
+2022-01-05T03:06:18+00:00 CRITICAL Uncaught Error: Class 'ExtendsEle\Widgets\Posts\Posts_Base' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php:17
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php(51): require_once()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): register_list_widget(Object(Elementor\Widgets_Manager))
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(120): do_action('elementor/widge...', Object(Elementor\Widgets_Manager))
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(302): Elementor\ in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php on line 17
+
+2022-01-05T03:06:37+00:00 CRITICAL Uncaught Error: Class 'Posts_Base' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php:17
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php(51): require_once()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): register_list_widget(Object(Elementor\Widgets_Manager))
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(120): do_action('elementor/widge...', Object(Elementor\Widgets_Manager))
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(302): Elementor\Widgets_Manager->init_wid in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php on line 17
+
+2022-01-05T03:09:21+00:00 CRITICAL Uncaught Error: Call to undefined method Extends_Posts_Widget::register_button_content_controls() in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/posts-base.php:297
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php(49): Posts_Base->register_pagination_section_controls()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(2233): Extends_Posts_Widget->register_controls()
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(480): Elementor\Controls_Stack->init_controls()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/widget-base.php(175): Elementor\Controls_Stack->get_stack()
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(341): Elementor\Widget_Base- in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/posts-base.php on line 297
+
+2022-01-05T03:19:52+00:00 CRITICAL Uncaught Error: Class 'Extends_Posts_Widget' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php:53
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): register_list_widget(Object(Elementor\Widgets_Manager))
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(120): do_action('elementor/widge...', Object(Elementor\Widgets_Manager))
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(302): Elementor\Widgets_Manager->init_widgets()
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/elements/column.php(1037): Elementor\Wi in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php on line 53
+
+2022-01-05T03:19:59+00:00 CRITICAL Uncaught Error: Class 'Extends_Posts_Widget' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php:53
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): register_list_widget(Object(Elementor\Widgets_Manager))
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(120): do_action('elementor/widge...', Object(Elementor\Widgets_Manager))
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(302): Elementor\Widgets_Manager->init_widgets()
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/elements/column.php(1037): Elementor\Wi in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php on line 53
+
+2022-01-05T03:21:14+00:00 CRITICAL Uncaught Error: Class 'Posts_Base' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php:17
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/extends-elementor-widgets.php(51): require_once()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(303): register_list_widget(Object(Elementor\Widgets_Manager))
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-includes/plugin.php(470): WP_Hook->do_action(Array)
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(120): do_action('elementor/widge...', Object(Elementor\Widgets_Manager))
+#5 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/managers/widgets.php(302): Elementor\Widgets_Manager->init_wid in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php on line 17
+
+2022-01-05T03:31:10+00:00 CRITICAL Trait 'ExtendsEle\Widgets\Posts\Traits\Button_Widget_Trait' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/posts-base.php on line 19
+
+2022-01-05T03:31:50+00:00 CRITICAL Trait 'ExtendsEle\Widgets\Posts\Traits\Button_Widget_Trait' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/posts-base.php on line 19
+
+2022-01-05T03:32:23+00:00 CRITICAL Trait 'ExtendsElementorWidgets\Widgets\Posts\Traits\Button_Widget_Trait' not found in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/posts-base.php on line 19
+
+2022-01-05T03:33:19+00:00 CRITICAL require_once(): Failed opening required '/traits/button-widget-trait.php' (include_path='.:/Applications/XAMPP/xamppfiles/lib/php') in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/posts-base.php on line 3
+
+2022-01-05T03:33:40+00:00 CRITICAL require_once(): Failed opening required './traits/button-widget-trait.php' (include_path='.:/Applications/XAMPP/xamppfiles/lib/php') in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/posts-base.php on line 3
+
+2022-01-05T03:59:22+00:00 CRITICAL Uncaught Error: Call to undefined method Extends_Posts_Widget::register_query_section_controls() in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php:52
+Stack trace:
+#0 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(2233): Extends_Posts_Widget->register_controls()
+#1 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(480): Elementor\Controls_Stack->init_controls()
+#2 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/widget-base.php(175): Elementor\Controls_Stack->get_stack()
+#3 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(286): Elementor\Widget_Base->get_stack()
+#4 /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/elementor/includes/base/controls-stack.php(2320): Elementor\Controls_Stack->get_controls()
+#5 /Us in /Users/emosidan/Sites/belajarwordpress.dev.cc/wp-content/plugins/extends-elementor-widgets/widgets/posts/blog-posts.php on line 52
+
