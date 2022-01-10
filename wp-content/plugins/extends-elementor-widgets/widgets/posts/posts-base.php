@@ -5,9 +5,10 @@ require_once('traits/button-widget-trait.php');
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Group_Control_Typography;
 use Elementor\Controls_Manager;
-
+use ElementorPro\Base\Base_Widget;
 // use ElementorPro\Base\Base_Widget;
-//use ExtendsElementorWidgets\Widgets\Posts\Traits\Button_Widget_Trait;
+// use ExtendsElementorWidgets\Widgets\Posts\Traits\Button_Widget_Trait;
+use ElementorPro\Modules\Posts\Traits\Button_Widget_Trait;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -16,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class Posts
  */
-abstract class Posts_Base extends \Elementor\Widget_Base {
+abstract class Posts_Base extends Base_Widget {
 	use Button_Widget_Trait;
 
 	const LOAD_MORE_ON_CLICK = 'load_more_on_click';

@@ -3,9 +3,9 @@
 require_once('posts-base.php');
 
 use Elementor\Controls_Manager;
-// use ElementorPro\Modules\QueryControl\Module as Module_Query;
-// use ElementorPro\Modules\QueryControl\Controls\Group_Control_Related;
-// use ElementorPro\Modules\Posts\Skins;
+use ElementorPro\Modules\QueryControl\Module as Module_Query;
+use ElementorPro\Modules\QueryControl\Controls\Group_Control_Related;
+use ElementorPro\Modules\Posts\Skins;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -32,19 +32,19 @@ class Extends_Posts_Widget extends Posts_Base {
 		return [ 'extends-widgets' ];
 	}
 
-	// public function on_import( $element ) {
-	// 	if ( isset( $element['settings']['posts_post_type'] ) && ! get_post_type_object( $element['settings']['posts_post_type'] ) ) {
-	// 		$element['settings']['posts_post_type'] = 'post';
-	// 	}
+	public function on_import( $element ) {
+		if ( isset( $element['settings']['posts_post_type'] ) && ! get_post_type_object( $element['settings']['posts_post_type'] ) ) {
+			$element['settings']['posts_post_type'] = 'post';
+		}
 
-	// 	return $element;
-	// }
+		return $element;
+	}
 
-	// protected function register_skins() {
-	// 	$this->add_skin( new Skins\Skin_Classic( $this ) );
-	// 	$this->add_skin( new Skins\Skin_Cards( $this ) );
-	// 	$this->add_skin( new Skins\Skin_Full_Content( $this ) );
-	// }
+	protected function register_skins() {
+		$this->add_skin( new Skins\Skin_Classic( $this ) );
+		$this->add_skin( new Skins\Skin_Cards( $this ) );
+		$this->add_skin( new Skins\Skin_Full_Content( $this ) );
+	}
 
 	protected function register_controls() {
 		parent::register_controls();
@@ -74,16 +74,16 @@ class Extends_Posts_Widget extends Posts_Base {
 			]
 		);
 
-		// $this->add_group_control(
-		// 	Group_Control_Related::get_type(),
-		// 	[
-		// 		'name' => $this->get_name(),
-		// 		'presets' => [ 'full' ],
-		// 		'exclude' => [
-		// 			'posts_per_page', //use the one from Layout section
-		// 		],
-		// 	]
-		// );
+		$this->add_group_control(
+			Group_Control_Related::get_type(),
+			[
+				'name' => $this->get_name(),
+				'presets' => [ 'full' ],
+				'exclude' => [
+					'posts_per_page', //use the one from Layout section
+				],
+			]
+		);
 
 		$this->end_controls_section();
 	}
